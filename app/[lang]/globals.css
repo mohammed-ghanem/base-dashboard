@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Almarai&family=Aref+Ruqaa&family=El+Messiri&family=Reem+Kufi&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+ 
+html {
+  @apply font-cairo; /* Apply the Cairo font as the default */
+}
+body {
+    position: relative;
+}
+.bkBox {
+ background: #F5F3ED; 
+}
+.primaryColor {
+    color: #9F854E; 
+}
+.mainColor {
+    color: #424C61; 
+}
+.bkMainColor {
+    background: #424C61;
+}
+.bkPrimaryColor{
+    background: #9F854E;
+}
+.bkColor{
+    background : #F5F3ED;
+} 
+.bkNone{
+    background : rgb(255 255 255 / 10%)
+}
+.grdianBK{
+    background: radial-gradient(circle, rgba(245,243,237,0.8519782913165266) 20%, rgba(255,255,255,0.5326505602240896) 60%);
+}
