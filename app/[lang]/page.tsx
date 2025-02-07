@@ -1,5 +1,7 @@
 
+import SideBar from "@/components/sidebar/SideBar";
 import { getDictionary } from "./dictionaries";
+
 
 export const dynamic = 'force-static';
 
@@ -17,7 +19,7 @@ export default async function Home({ params }: Props) {
       <main className="w-full">
         <h1 className="">dashboard base page</h1>
         {/* <h1 className="">{dict.pages.homePage.statistics.Books}</h1> */}
-        <button className="btn btn-primary">Button</button>
+        <SideBar/>
       </main>
     </div>
   );

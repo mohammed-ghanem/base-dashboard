@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 
 
 const config: Config = {
+  plugins: [],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -23,13 +24,13 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          //"border-pattern": "url('/assets/images/card.png')",
+
       },
       fontFamily: {
         cairo: ['Cairo', 'sans-serif'], // Add this line
       },
     }
   },
-  plugins: [require("daisyui")], // Add DaisyUI plugin
+
 };
 export default config;
