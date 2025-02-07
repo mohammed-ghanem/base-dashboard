@@ -1,11 +1,98 @@
+"use client"
+import { useState } from 'react';
+import {
+    IconCalendarStats,
+    IconDeviceDesktopAnalytics,
+    IconFingerprint,
+    IconGauge,
+    IconHome2,
+    IconSettings,
+    IconUser,
+} from '@tabler/icons-react';
+import { Title, Tooltip, UnstyledButton } from '@mantine/core';
+import classes from './side.module.css';
 
+const mainLinksMockdata = [
+    { icon: IconHome2, label: 'Home' },
+    { icon: IconGauge, label: 'Dashboard' },
+    { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
+    { icon: IconCalendarStats, label: 'Releases' },
+    { icon: IconUser, label: 'Account' },
+    { icon: IconFingerprint, label: 'Security' },
+    { icon: IconSettings, label: 'Settings' },
 
-const SideBar = () => {
+];
+
+const linksMockdata = [
+    'Security',
+    'Settings',
+    'Dashboard',
+    'Releases',
+    'Account',
+    'Orders',
+    'Clients',
+    'Databases',
+    'Pull Requests',
+    'Open Issues',
+    'Wiki pages',
+];
+
+const SiderBar = () => {
+    const [active, setActive] = useState('');
+    const [activeLink, setActiveLink] = useState('Settings');
+
+    const mainLinks = mainLinksMockdata.map((link) => (
+        <Tooltip
+            label={link.label}
+            position="right"
+            withArrow
+            transitionProps={{ duration: 0 }}
+            key={link.label}
+        >
+            <UnstyledButton
+
+                className={classes.mainLink}
+
+            >
+                <link.icon size={22} stroke={1.5} />
+            </UnstyledButton>
+        </Tooltip>
+    ));
+
+    const links = linksMockdata.map((link) => (
+        <a
+            className={`${classes.link}`}
+            data-active={activeLink === link || undefined}
+            href="#"
+            onClick={(event) => {
+                event.preventDefault();
+                setActiveLink(link);
+            }}
+            key={link}
+        >
+            {link}
+        </a>
+    ));
+
     return (
-        <div>
-           sidebar
-        </div>
-    )
+        <nav className={classes.navbar}>
+            <div className={classes.wrapper}>
+                <div className={classes.aside}>
+                    <div className={classes.logo}>
+                        logo
+                    </div>
+                    {mainLinks}
+                </div>
+                <div className={classes.main}>
+                    <Title order={4} className={classes.title}>
+                        {active}
+                    </Title>
+
+                    {links}
+                </div>
+            </div>
+        </nav>
+    );
 }
 
-export default SideBar
+export default SiderBar
