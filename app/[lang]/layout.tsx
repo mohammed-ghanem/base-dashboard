@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { MantineProvider } from '@mantine/core';
-import '@mantine/core/styles.css'; // Import Mantine's core styles
 
 import "./globals.css";
 // import '@/utils/fontAwesome'; // Import the Font Awesome configuration
-// import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 
 
@@ -37,11 +35,9 @@ export default async function RootLayout({
   return (
     <html lang={params.lang} dir={params.lang === "ar" ? "rtl" : 'ltr'}>
       <body>
-        <MantineProvider
-          defaultColorScheme="light" // Set default color scheme (light/dark)
-        >
+        <AntdRegistry>
           {children}
-        </MantineProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
