@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 // import '@/utils/fontAwesome'; // Import the Font Awesome configuration
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-
-
-
-
+import SideBar from "@/components/layouts/sideBar/SideBar";
+import NavBar from "@/components/layouts/header/NavBar";
+import Footer from "@/components/layouts/footer/Footer";
 
 export const metadata: Metadata = {
   title: "build dashboard",
-  // icons: {
-  //   icon: "https://dashboard.sorooj.org/storage/26/favicon.ico", // Main favicon
-  //   shortcut: "https://dashboard.sorooj.org/storage/26/favicon.ico",
-  // }
 };
 
 
@@ -35,9 +29,23 @@ export default async function RootLayout({
   return (
     <html lang={params.lang} dir={params.lang === "ar" ? "rtl" : 'ltr'}>
       <body>
-        <AntdRegistry>
-          {children}
-        </AntdRegistry>
+        <div className="min-h-screen flex flex-col">
+          {/* Main Content */}
+          <div className="flex flex-1">
+            {/* Sidebar */}
+            <SideBar />
+            <div className="w-full flex flex-col">
+              {/* Navbar */}
+              <NavBar />
+              {/* Children - flex-1 ensures it takes up remaining space */}
+              <main className="flex-1">
+                <AntdRegistry>{children}</AntdRegistry>
+              </main>
+              {/* Footer - stays at the bottom */}
+              <Footer />
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
