@@ -61,7 +61,7 @@ const Dashboard = () => {
               }}
               className="block p-3 rounded-md hover:bg-gray-800 w-full text-right"
             >
-              Settings
+              Settingsss
             </button>
           </nav>
         </aside>
