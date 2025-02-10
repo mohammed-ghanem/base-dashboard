@@ -23,10 +23,26 @@ html {
 }
 body {
     position: relative;
-    background: #F7F8FA;
+    background: #EEF8FE;
 }
 .hoverBox {
     background: #398AB7;
+}
+.titleBox {
+    width: fit-content;
+    background: #398AB7;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* .ant-pagination-prev,.ant-pagination-next {
+    transform: rotate(180deg)!important
+} */
+
+.custom-pagination .ant-pagination-item {
+  margin: 0 4px; /* Adjust spacing between page numbers */
 }
 
 
