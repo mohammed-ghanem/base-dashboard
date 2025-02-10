@@ -37,13 +37,6 @@ body {
     color: #fff;
 }
 
-/* .ant-pagination-prev,.ant-pagination-next {
-    transform: rotate(180deg)!important
-} */
-
-.custom-pagination .ant-pagination-item {
-  margin: 0 4px; /* Adjust spacing between page numbers */
-}
 
 
 .bkBox {
