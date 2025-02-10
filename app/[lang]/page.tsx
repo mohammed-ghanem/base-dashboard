@@ -17,8 +17,6 @@ export default async function Home({ params }: Props) {
   return (
     <div>
       <main className="w-full">
-        {/* <h1 className="">header navbar</h1> */}
-        {/* <h1 className="">{dict.pages.homePage.statistics.Books}</h1> */}
         <Dashboard/> 
       </main>
     </div>
