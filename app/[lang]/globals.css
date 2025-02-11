@@ -52,7 +52,7 @@ body {
     background: #424C61;
 }
 .bkPrimaryColor{
-    background: #9F854E;
+    background: #398AB7;
 }
 .bkColor{
     background : #F5F3ED;
@@ -61,5 +61,5 @@ body {
     background : rgb(255 255 255 / 10%)
 }
 .grdianBK{
-    background: radial-gradient(circle, rgba(245,243,237,0.8519782913165266) 20%, rgba(255,255,255,0.5326505602240896) 60%);
+    background: radial-gradient(circle, #add8e6 20%, #fff 60%);
 }

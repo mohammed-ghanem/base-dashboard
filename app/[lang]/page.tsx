@@ -3,6 +3,7 @@ import Dashboard from "@/components/dashboard/Dashboard";
 import { getDictionary } from "./dictionaries";
 
 
+
 export const dynamic = 'force-static';
 
 type Props = {
@@ -17,7 +18,7 @@ export default async function Home({ params }: Props) {
   return (
     <div>
       <main className="w-full">
-        <Dashboard/> 
+        <Dashboard />
       </main>
     </div>
   );

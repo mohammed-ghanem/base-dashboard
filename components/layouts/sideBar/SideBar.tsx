@@ -21,7 +21,7 @@ const SideBar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/users" className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+          <Link prefetch={true} href="/users" className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
             <UserOutlined className="text-xl ml-2" />
             <span className="hidden md:inline">العملاء</span>
           </Link>
