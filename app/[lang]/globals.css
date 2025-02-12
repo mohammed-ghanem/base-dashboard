@@ -21,7 +21,8 @@ html {
 }
 body {
     position: relative;
-    background: #EEF8FE;
+    /* background: #EEF8FE; */
+    background: radial-gradient(circle, #add8e6 30%, #fff 100%);
 }
 .hoverBox {
     background: #398AB7;
