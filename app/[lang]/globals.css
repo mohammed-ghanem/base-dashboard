@@ -2,11 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Almarai&family=Aref+Ruqaa&family=El+Messiri&family=Reem+Kufi&display=swap');
 
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 
 @keyframes spin {
@@ -36,9 +34,6 @@ body {
     font-weight: bold;
     color: #fff;
 }
-
-
-
 .bkBox {
  background: #F5F3ED; 
 }

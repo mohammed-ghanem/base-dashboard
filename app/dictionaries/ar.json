@@ -102,7 +102,7 @@
         },
         "restPassword" : {
             "title" : "! اعادة تعيين كلمة المرور",
-            "titleDescription" : " ! قم باعادة تعيين كلمة المرور الخاصة بك",
+            "titleDescription" : " ! قم باعادة تعيين كلمة المرور الجديدة الخاصة بك",
             "password" : "كلمة المرور",
             "confirmPassword" : "تأكيد كلمة المرور",
             "sendRestPassword" : "ارسال",
