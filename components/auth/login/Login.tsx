@@ -1,7 +1,7 @@
 'use client'
 import { useState, ChangeEvent, FormEvent } from 'react'
 import axios from 'axios'
-import { message } from 'antd'; // Keep message for notifications
+import { notification } from 'antd'; // Replace message with notification
 import { axiosDefaultConfig, axiosWithCredentials } from "@/utils/axiosConfig"
 import Link from 'next/link'
 import Cookies from 'js-cookie'; // Import js-cookie to handle cookies
@@ -64,8 +64,20 @@ const Login = () => {
       // Store the access token securely in cookies instead of localStorage
       Cookies.set('access_token', accessToken, { expires: 7 }); // Expires in 7 days (optional)
 
-      // Show success message and redirect
-      message.success(`${translate ? translate.pages.signin.LoginSuccessful : "Login Successful!"}`);
+      // Show big success notification
+      notification.success({
+        message: translate ? translate.pages.signin.LoginSuccessful : "Login Successful!",
+        description: translate ? translate.pages.signin.LoginSuccessfulDescription : "You have successfully logged in.",
+        placement: "top", // Display at the top of the screen
+        duration: 5, // Display for 5 seconds
+        style: {
+          width: 500, // Set the width of the notification
+          fontSize: 16, // Increase font size
+          padding: 20, // Add padding
+        },
+      });
+
+      // Redirect after a delay
       setTimeout(() => {
         window.location.href = `/${lang}/`;
       }, 1000);
@@ -74,11 +86,44 @@ const Login = () => {
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 422) {
           setErrors(`${translate ? translate.pages.signin.InvalidEmailOrPassword : "Invalid Email Or Password"}`);
-          message.error(`${translate ? translate.pages.signin.InvalidEmailOrPassword : "Invalid Email Or Password"}`);
+          // Show big error notification for invalid credentials
+          notification.error({
+            message: translate ? translate.pages.signin.InvalidEmailOrPassword : "Invalid Email Or Password",
+            description: translate ? translate.pages.signin.InvalidEmailOrPasswordDescription : "Please check your email and password and try again.",
+            placement: "top", // Display at the top of the screen
+            duration: 5, // Display for 5 seconds
+            style: {
+              width: 500, // Set the width of the notification
+              fontSize: 16, // Increase font size
+              padding: 20, // Add padding
+            },
+          });
         } else if (error.code === 'ERR_NETWORK') {
-          message.error(`${translate ? translate.pages.signin.NetworkError : "Error"}`);
+          // Show big error notification for network errors
+          notification.error({
+            message: translate ? translate.pages.signin.NetworkError : "Network Error",
+            description: translate ? translate.pages.signin.NetworkErrorDescription : "Please check your internet connection and try again.",
+            placement: "top", // Display at the top of the screen
+            duration: 5, // Display for 5 seconds
+            style: {
+              width: 500, // Set the width of the notification
+              fontSize: 16, // Increase font size
+              padding: 20, // Add padding
+            },
+          });
         } else {
-          message.error(`${translate ? translate.pages.signin.SomethingWentWrong : "Something went wrong!"}`);
+          // Show big error notification for other errors
+          notification.error({
+            message: translate ? translate.pages.signin.SomethingWentWrong : "Something went wrong!",
+            description: translate ? translate.pages.signin.SomethingWentWrongDescription : "Please try again later.",
+            placement: "top", // Display at the top of the screen
+            duration: 5, // Display for 5 seconds
+            style: {
+              width: 500, // Set the width of the notification
+              fontSize: 16, // Increase font size
+              padding: 20, // Add padding
+            },
+          });
         }
       } else {
         console.error("Error", error);
@@ -128,9 +173,9 @@ const Login = () => {
               />
               {errors && <p className="text-red-500">{errors}</p>}
             </div>
-            <Link href={`/${lang}/forget-password`} className="border-b border-regal-blue">
+            <a href={`/${lang}/forget-password`} className="border-b border-regal-blue">
               {translate ? translate.pages.signin.forgetPassword : ""}
-            </Link>
+            </a>
             <div>
               <button
                 type="submit"

@@ -86,53 +86,8 @@ const UserWelcome = () => {
         form.resetFields(); // Reset form fields
     };
 
-// Handle Edit Profile form submission
-const handleEditProfile = async (values: any) => {
-    try {
-        const token = Cookies.get("access_token"); // Get the access token from cookies
-
-        // Step 1: Fetch the CSRF token from the backend
-        await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/sanctum/csrf-cookie`, {
-            withCredentials: true,
-        });
-
-        // Step 2: Extract the CSRF token from cookies
-        const csrfToken = Cookies.get('XSRF-TOKEN'); // Using js-cookie to get the CSRF token
-
-        console.log("CSRF Token:", csrfToken); // Debugging: Log the CSRF token
-        console.log("Request Payload:", values); // Debugging: Log the payload
-
-        // Step 3: Make the update profile request with the CSRF token
-        const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/admins/update-profile`,
-            values,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`, // Include the access token in the request headers
-                    'X-XSRF-TOKEN': csrfToken as string, // Include the CSRF token in the request headers
-                },
-                withCredentials: true, // Ensure cookies are sent with the request
-            }
-        );
-
-        console.log("Response:", response.data); // Debugging: Log the response
-
-        message.success("Profile updated successfully!");
-        setUser(response.data.data); // Update user data in the state
-        handleModalClose(); // Close the modal
-    } catch (error: any) {
-        console.error("Error updating profile:", error);
-        if (error.response) {
-            console.error("Response Data:", error.response.data); // Debugging: Log the error response
-            console.error("Response Status:", error.response.status); // Debugging: Log the status code
-        }
-        message.error("Failed to update profile.");
-    }
-};
-
-
-    // Handle Change Password form submission
-    const handleChangePassword = async (values: any) => {
+    // Handle Edit Profile form submission
+    const handleEditProfile = async (values: any) => {
         try {
             const token = Cookies.get("access_token"); // Get the access token from cookies
 
@@ -141,15 +96,50 @@ const handleEditProfile = async (values: any) => {
                 withCredentials: true,
             });
 
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/admins/update-profile`,
+                values,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`, // Include the access token in the request headers
+                    },
+                    withCredentials: true, // Ensure cookies are sent with the request
+                }
+            );
+
+            message.success("Profile updated successfully!");
+            setUser(response.data.data); // Update user data in the state
+            handleModalClose(); // Close the modal
+        } catch (error: any) {
+            console.error("Error updating profile:", error);
+            if (error.response) {
+                console.error("Response Data:", error.response.data); // Debugging: Log the error response
+                console.error("Response Status:", error.response.status); // Debugging: Log the status code
+            }
+            message.error("Failed to update profile.");
+        }
+    };
+
+
+    // Handle Change Password form submission
+    const handleChangePassword = async (values: any) => {
+        try {
+            const token = Cookies.get("access_token"); // Get the access token from cookies
+    
+            // Step 1: Fetch the CSRF token from the backend
+            await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/sanctum/csrf-cookie`, {
+                withCredentials: true,
+            });
+    
             // Step 2: Extract the CSRF token from cookies
             const csrfToken = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('XSRF-TOKEN='))
                 ?.split('=')[1];
-
+    
             // Step 3: Make the change password request with the CSRF token
             await axios.post(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/changepassword`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/changpassword`,
                 values,
                 {
                     headers: {
@@ -159,9 +149,20 @@ const handleEditProfile = async (values: any) => {
                     withCredentials: true, // Ensure cookies are sent with the request
                 }
             );
-
-            message.success("Password changed successfully!");
-            handleModalClose(); // Close the modal
+    
+            // Step 4: Show success message
+            message.success("Password changed successfully! You will be redirected to the login page in 3 seconds.");
+    
+            // Step 5: Remove the access token
+            Cookies.remove("access_token");
+    
+            // Step 6: Delay the redirection to the login page
+            setTimeout(() => {
+                router.push("/login");
+            }, 3000); // 3 seconds delay
+    
+            // Step 7: Close the modal
+            handleModalClose();
         } catch (error: any) {
             console.error("Error changing password:", error);
             message.error("Failed to change password.");
@@ -250,28 +251,28 @@ const handleEditProfile = async (values: any) => {
                 return (
                     <Form form={form} onFinish={handleChangePassword} layout="vertical">
                         <Form.Item
-                            name="oldPassword"
+                            name="old_password"
                             label="Old Password"
                             rules={[{ required: true, message: "Please enter your old password" }]}
                         >
                             <Input.Password placeholder="Enter old password" />
                         </Form.Item>
                         <Form.Item
-                            name="newPassword"
+                            name="password"
                             label="New Password"
                             rules={[{ required: true, message: "Please enter your new password" }]}
                         >
                             <Input.Password placeholder="Enter new password" />
                         </Form.Item>
                         <Form.Item
-                            name="confirmPassword"
+                            name="password_confirmation"
                             label="Confirm New Password"
                             dependencies={["newPassword"]}
                             rules={[
                                 { required: true, message: "Please confirm your new password" },
                                 ({ getFieldValue }) => ({
                                     validator(_, value) {
-                                        if (!value || getFieldValue("newPassword") === value) {
+                                        if (!value || getFieldValue("password") === value) {
                                             return Promise.resolve();
                                         }
                                         return Promise.reject("The two passwords do not match!");
