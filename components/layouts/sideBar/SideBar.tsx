@@ -1,9 +1,14 @@
 "use client";
-import React from "react";
+
 import Link from "next/link";
 import { DashboardOutlined, SettingOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
+import LangUseParams from "@/components/translate/LangUseParams";
+import TranslateHook from "@/components/translate/TranslateHook";
 
 const SideBar = () => {
+  // lang
+  const lang = LangUseParams();
+  const translate = TranslateHook();
   return (
     <aside className="bg-white text-gray-500 h-screen transition-all duration-300 w-16 md:w-64 p-2 md:p-4 ">
       <div className="text-center my-2 bg-zinc-950 py-10">logo</div>
@@ -21,7 +26,7 @@ const SideBar = () => {
           </Link>
         </li>
         <li>
-          <Link prefetch={true} href="/users" className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+          <Link prefetch={true} href={`/${lang}/users`} className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
             <UserOutlined className="text-xl ml-2" />
             <span className="hidden md:inline">العملاء</span>
           </Link>

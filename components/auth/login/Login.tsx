@@ -4,7 +4,6 @@ import axios from 'axios'
 import { message } from 'antd'; // Keep message for notifications
 import { axiosDefaultConfig, axiosWithCredentials } from "@/utils/axiosConfig"
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'; // Import js-cookie to handle cookies
 import Image from 'next/image'
 import whiteAuthBk from '@/public/assets/images/Vector.svg'
