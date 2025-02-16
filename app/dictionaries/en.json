@@ -1,20 +1,6 @@
 {
     "navigation" : {
-        "home": "Home",
-        "about": "About-US",
-        "courses" : "Free Courses",
-        "books" : "Books",
-        "questions" : "Answer & Questions" , 
-        "contact" : "Contact-Us",
-        "videolibirary" : "video Libirary",
-        "audiolibirary" : "audio Libirary",
-        "blog" : "Blog",
-        "liveair" : "Live-Air",
-        "terms" : "Terms",
-        "policy" : "privacy-policy",
-        "deleteAccount" : "delete account",
-        "academy" : "Sorooj Academy"
-
+        "home": "Home"
     },
     "pages" : {
         "homePage" : {
@@ -54,9 +40,6 @@
                 "forWomen" : "Women :"
             }
         },
-        "lesson" : {
-            "title" : "welcome in lesson"
-        },
         "signin" : {
             "loginTitle" :"Log In",
             "email" : "Email Address",
@@ -78,22 +61,16 @@
             "NetworkError": "Network Error', 'Please check your network connection and try again.', 'error'" ,
             "SomethingWentWrong" : "'Error', 'Something went wrong. Please try again later.', 'error'"
         },
-        "signup" : { 
-           "titleSuccess" : "Registration Successful!",
-           "titleDescription" : "You will be redirected to the verify page to check your email.",
-           "ok" : "ok",
-           "titleFailed" : "Registration Failed!",
-           "titleFailedDescription" : "This email is already registered. Please use another email",
-           "title" : "Create New Account",
-           "fristName" : "Frist Name",
-           "lastName" : "Last Name",
-           "email" :"Email Address",
-           "gender" : "Gender",
-           "phoneNumber" : "Phone Number" , 
-           "password" : "Password",
-           "confirmPassword" : "Confirm Password",
-           "send" : "send"
-        },
+        "welcomeUser" : {
+            "profile" : "Personal Profile",
+            "editProfile" : "Edit Profile",
+            "changePassword" : "Change Password",
+            "logOut" : "Logout",
+            "cancel" : "Cancel",
+            "name": "Name :",
+            "email" : "Email :",
+            "mobile" : "Mobile :"
+         },
         "forgotPassword" : {
             "title" : "Forgot Password ?",
             "titleDescription" : "Enter your email to recover your password !",

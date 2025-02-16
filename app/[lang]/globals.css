@@ -35,6 +35,16 @@ body {
     font-weight: bold;
     color: #fff;
 }
+.personalDrop {
+    font-weight: bold!important;
+    color: #398AB7!important;
+    font-family: cairo!important;
+    font-size: 12px!important;
+}
+.personalDrop:hover {
+    background-color: #398AB7!important;
+    color: #fff!important;
+}
 .bkBox {
  background: #F5F3ED; 
 }
