@@ -69,7 +69,13 @@
             "cancel" : "الغاء",
             "name": "الاسم :",
             "email" : " البريد الالكترونى :",
-            "mobile" : "رقم الجوال :"
+            "mobile" : "رقم الجوال :",
+            "edit" : "تعديل",
+            "oldPassword" : "كلمة المرور السابقة",
+            "newPassword" :"كلمة المرور الجديدة ",
+            "confirmNewPassword" :"تاكد كلمة المرور الجديد ",
+            "confirmLogout" : "تأكيد تسجيل الخروج"
+            
          },
         "forgotPassword" : {
             "title" : "هل نسيت كلمة المرور ؟",

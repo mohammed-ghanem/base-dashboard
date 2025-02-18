@@ -69,7 +69,12 @@
             "cancel" : "Cancel",
             "name": "Name :",
             "email" : "Email :",
-            "mobile" : "Mobile :"
+            "mobile" : "Mobile :",
+            "edit" : "Update",
+            "oldPassword" :"Current Password",
+            "newPassword":"New Password",
+            "confirmNewPassword" :"confirm Password",
+            "confirmLogout": "Confirm Logout"
          },
         "forgotPassword" : {
             "title" : "Forgot Password ?",

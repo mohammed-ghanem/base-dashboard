@@ -27,6 +27,12 @@ body {
 .hoverBox {
     background: #398AB7;
 }
+.mainColor {
+    color: #398AB7; 
+}
+.bkMainColor {
+    background: #398AB7;
+}
 .titleBox {
     width: fit-content;
     background: #398AB7;
@@ -45,18 +51,38 @@ body {
     background-color: #398AB7!important;
     color: #fff!important;
 }
+.userDropDown .ant-dropdown-menu{
+    padding: 10px 5px!important;
+}
+.font-cairo {
+    font-family: Cairo, sans-serif!important;
+}
+.customBtn {
+    color: #fff!important;
+    display: block!important;
+    background-color: #398AB7!important;
+    font-weight: bold!important;
+}
+.bold {
+    font-weight: bold!important;
+}
+.btn-success {
+    background-color: #30a512!important;
+    color: #fff!important;
+    font-weight: bold!important;
+}
+.btn-success:hover {
+   
+    border-color:none!important
+}
 .bkBox {
  background: #F5F3ED; 
 }
 .primaryColor {
-    color: #9F854E; 
+    color: #8b8b8b; 
 }
-.mainColor {
-    color: #424C61; 
-}
-.bkMainColor {
-    background: #424C61;
-}
+
+
 .bkPrimaryColor{
     background: #398AB7;
 }

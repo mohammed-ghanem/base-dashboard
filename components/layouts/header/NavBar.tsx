@@ -1,5 +1,6 @@
 "use client"
 
+import LangBtn from "./LangBtn";
 import UserWelcome from "./UserWelcome";
 
 const NavBar = () => {
@@ -9,7 +10,10 @@ const NavBar = () => {
     <nav className="bg-white p-4 w-full h-16 shadow-[0_4px_4px_#398ab71c]">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-xl font-bold">Dashboard</h1>
-        <UserWelcome />
+        <div className="flex items-center">
+          <LangBtn />
+          <UserWelcome />
+        </div>
       </div>
     </nav>
   );

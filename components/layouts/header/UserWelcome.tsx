@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import type { MenuProps } from "antd"; // Import MenuProps type
 import TranslateHook from "@/components/translate/TranslateHook";
-import {UserOutlined,EditOutlined,LockOutlined,LogoutOutlined} from "@ant-design/icons";
+import { UserOutlined, EditOutlined, LockOutlined, LogoutOutlined } from "@ant-design/icons";
 
 const UserWelcome = () => {
     const router = useRouter();
@@ -18,8 +18,10 @@ const UserWelcome = () => {
     const [profileLoading, setProfileLoading] = useState<boolean>(false); // Loading state for profile data
     const [form] = Form.useForm(); // Form instance for Ant Design forms
     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState<boolean>(false); // State to control logout confirmation modal visibility
+    const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false); // State to manage logout loading overlay
     // lang
     const translate = TranslateHook();
+
     // Fetch user profile data
     useEffect(() => {
         const fetchProfile = async () => {
@@ -48,10 +50,15 @@ const UserWelcome = () => {
 
     // Handle actual logout
     const handleLogout = () => {
+        setIsLoggingOut(true); // Show loading overlay
         Cookies.remove("access_token"); // Remove the access token
         message.success("You have been logged out."); // Show success message
-        router.push("/login"); // Redirect to login page
-        setIsLogoutModalOpen(false); // Close the logout confirmation modal
+
+        // Delay the redirection to show the loading overlay
+        setTimeout(() => {
+            router.push("/login"); // Redirect to login page
+            setIsLoggingOut(false); // Hide loading overlay after redirection
+        }, 1000); // 1 second delay
     };
 
     // Open modal based on the selected option
@@ -134,18 +141,18 @@ const UserWelcome = () => {
     const handleChangePassword = async (values: any) => {
         try {
             const token = Cookies.get("access_token"); // Get the access token from cookies
-    
+
             // Step 1: Fetch the CSRF token from the backend
             await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/sanctum/csrf-cookie`, {
                 withCredentials: true,
             });
-    
+
             // Step 2: Extract the CSRF token from cookies
             const csrfToken = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('XSRF-TOKEN='))
                 ?.split('=')[1];
-    
+
             // Step 3: Make the change password request with the CSRF token
             await axios.post(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/changpassword`,
@@ -158,18 +165,18 @@ const UserWelcome = () => {
                     withCredentials: true, // Ensure cookies are sent with the request
                 }
             );
-    
+
             // Step 4: Show success message
             message.success("Password changed successfully! You will be redirected to the login page in 3 seconds.");
-    
+
             // Step 5: Remove the access token
             Cookies.remove("access_token");
-    
+
             // Step 6: Delay the redirection to the login page
             setTimeout(() => {
                 router.push("/login");
             }, 3000); // 3 seconds delay
-    
+
             // Step 7: Close the modal
             handleModalClose();
         } catch (error: any) {
@@ -215,31 +222,31 @@ const UserWelcome = () => {
         switch (modalType) {
             case "updateProfile":
                 return (
-                    <Form form={form} onFinish={handleEditProfile} layout="vertical">
+                    <Form className="font-bold" form={form} onFinish={handleEditProfile} layout="vertical">
                         <Form.Item
                             name="name"
-                            label="Name"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.name : ""}</span>}
                             rules={[{ required: true, message: "Please enter your name" }]}
                         >
                             <Input placeholder="Enter your name" />
                         </Form.Item>
                         <Form.Item
                             name="email"
-                            label="Email"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.email : ""}</span>}
                             rules={[{ required: true, message: "Please enter your email" }]}
                         >
                             <Input placeholder="Enter your email" />
                         </Form.Item>
                         <Form.Item
                             name="mobile"
-                            label="Mobile"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.mobile : ""}</span>}
                             rules={[{ required: true, message: "Please enter your mobile number" }]}
                         >
                             <Input placeholder="Enter your mobile number" />
                         </Form.Item>
                         <Form.Item>
-                            <Button  type="primary" htmlType="submit">
-                                Update Profile
+                            <Button className="ms-auto customBtn font-cairo" type="primary" htmlType="submit">
+                                {translate ? translate.pages.welcomeUser.edit : ""}
                             </Button>
                         </Form.Item>
                     </Form>
@@ -249,24 +256,24 @@ const UserWelcome = () => {
                     <Spin spinning={profileLoading}>
                         {profileData ? (
                             <div className="font-bold font-cairo">
-                                <h3 className="titleBox"> 
-                                  {translate ? translate.pages.welcomeUser.profile : ""}
+                                <h3 className="titleBox">
+                                    {translate ? translate.pages.welcomeUser.profile : ""}
                                 </h3>
                                 <p className="mt-2">
                                     <strong className="mx-1">
-                                    {translate ? translate.pages.welcomeUser.name : ""}
+                                        {translate ? translate.pages.welcomeUser.name : ""}
                                     </strong>
                                     {profileData.user.name}
                                 </p>
                                 <p className="my-2">
                                     <strong className="mx-1">
-                                    {translate ? translate.pages.welcomeUser.email : ""}
+                                        {translate ? translate.pages.welcomeUser.email : ""}
                                     </strong>
                                     {profileData.user.email}
                                 </p>
                                 <p>
                                     <strong className="mx-1">
-                                    {translate ? translate.pages.welcomeUser.mobile : ""}
+                                        {translate ? translate.pages.welcomeUser.mobile : ""}
                                     </strong>
                                     {profileData.user.mobile}
                                 </p>
@@ -281,21 +288,21 @@ const UserWelcome = () => {
                     <Form form={form} onFinish={handleChangePassword} layout="vertical">
                         <Form.Item
                             name="old_password"
-                            label="Old Password"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.oldPassword : ""}</span>}
                             rules={[{ required: true, message: "Please enter your old password" }]}
                         >
-                            <Input.Password placeholder="Enter old password" />
+                            <Input.Password placeholder={translate ? translate.pages.welcomeUser.oldPassword : ""} />
                         </Form.Item>
                         <Form.Item
                             name="password"
-                            label="New Password"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.newPassword : ""}</span>}
                             rules={[{ required: true, message: "Please enter your new password" }]}
                         >
-                            <Input.Password placeholder="Enter new password" />
+                            <Input.Password placeholder={translate ? translate.pages.welcomeUser.newPassword : ""} />
                         </Form.Item>
                         <Form.Item
                             name="password_confirmation"
-                            label="Confirm New Password"
+                            label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.confirmNewPassword : ""}</span>}
                             dependencies={["newPassword"]}
                             rules={[
                                 { required: true, message: "Please confirm your new password" },
@@ -309,11 +316,11 @@ const UserWelcome = () => {
                                 }),
                             ]}
                         >
-                            <Input.Password placeholder="Confirm new password" />
+                            <Input.Password placeholder={translate ? translate.pages.welcomeUser.confirmNewPassword : ""} />
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" htmlType="submit">
-                                Change Password
+                            <Button className="ms-auto customBtn font-cairo" type="primary" htmlType="submit">
+                                {translate ? translate.pages.welcomeUser.changePassword : ""}
                             </Button>
                         </Form.Item>
                     </Form>
@@ -323,18 +330,37 @@ const UserWelcome = () => {
         }
     };
 
+    // Loading Overlay Component
+    const LoadingOverlay = () => (
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+        }}>
+            <Spin size="large" />
+        </div>
+    );
+
     return (
         <div className="flex items-center">
+            {isLoggingOut && <LoadingOverlay />} {/* Show loading overlay if logging out */}
             {loading ? (
                 <span>Loading...</span>
             ) : user ? (
                 <>
-                    <span className="mx-4">{user.user.name}</span>
-                        <Dropdown
-                            menu={{ items }}
-                            trigger={["click"]}
-                            overlayClassName="w-[200px]" 
-                        >
+                    <span className="mx-4 bold">{user.user.name}</span>
+                    <Dropdown
+                        menu={{ items }}
+                        trigger={["click"]}
+                        overlayClassName="w-[200px] userDropDown"
+                    >
                         <div className="cursor-pointer">
                             {/* Replace with your avatar or user icon */}
                             <div className="w-10 h-10 bg-[#398AB7] rounded-full flex items-center justify-center">
@@ -354,25 +380,31 @@ const UserWelcome = () => {
 
                     {/* Logout Confirmation Modal */}
                     <Modal
-                        title="Confirm Logout"
+                        title={translate ? translate.pages.welcomeUser.confirmLogout : ""}
                         open={isLogoutModalOpen}
                         onOk={handleLogout}
                         onCancel={() => setIsLogoutModalOpen(false)}
-                        okText="Logout"
-                        cancelText="Cancel"
+                        okText={translate ? translate.pages.welcomeUser.logOut : ""}
+                        cancelText={<span className="font-cairo font-bold">{translate ? translate.pages.welcomeUser.cancel : ""}</span>}
+                        className="font-bold font-cairo"
+                        okButtonProps={{
+                            className: "font-cairo bold",
+                            danger: true, // Add danger style
+                        }}
+                        cancelButtonProps={{
+                            className: "btn-success",
+                        }}
                     >
-                        <p>Are you sure you want to log out?</p>
                     </Modal>
                 </>
             ) : (
-                <span>Not logged in</span>
+                <span className="">Not logged in</span>
             )}
         </div>
     );
 };
 
 export default UserWelcome;
-
 
 
 
@@ -384,6 +416,8 @@ export default UserWelcome;
 // import Cookies from "js-cookie";
 // import axios from "axios";
 // import type { MenuProps } from "antd"; // Import MenuProps type
+// import TranslateHook from "@/components/translate/TranslateHook";
+// import { UserOutlined, EditOutlined, LockOutlined, LogoutOutlined } from "@ant-design/icons";
 
 // const UserWelcome = () => {
 //     const router = useRouter();
@@ -394,7 +428,9 @@ export default UserWelcome;
 //     const [profileData, setProfileData] = useState<any>(null); // State to store profile data
 //     const [profileLoading, setProfileLoading] = useState<boolean>(false); // Loading state for profile data
 //     const [form] = Form.useForm(); // Form instance for Ant Design forms
-
+//     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState<boolean>(false); // State to control logout confirmation modal visibility
+//     // lang
+//     const translate = TranslateHook();
 //     // Fetch user profile data
 //     useEffect(() => {
 //         const fetchProfile = async () => {
@@ -416,11 +452,17 @@ export default UserWelcome;
 //         fetchProfile();
 //     }, []);
 
-//     // Handle logout
+//     // Handle logout confirmation
+//     const handleLogoutConfirmation = () => {
+//         setIsLogoutModalOpen(true);
+//     };
+
+//     // Handle actual logout
 //     const handleLogout = () => {
 //         Cookies.remove("access_token"); // Remove the access token
 //         message.success("You have been logged out."); // Show success message
 //         router.push("/login"); // Redirect to login page
+//         setIsLogoutModalOpen(false); // Close the logout confirmation modal
 //     };
 
 //     // Open modal based on the selected option
@@ -499,23 +541,22 @@ export default UserWelcome;
 //         }
 //     };
 
-
 //     // Handle Change Password form submission
 //     const handleChangePassword = async (values: any) => {
 //         try {
 //             const token = Cookies.get("access_token"); // Get the access token from cookies
-    
+
 //             // Step 1: Fetch the CSRF token from the backend
 //             await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/sanctum/csrf-cookie`, {
 //                 withCredentials: true,
 //             });
-    
+
 //             // Step 2: Extract the CSRF token from cookies
 //             const csrfToken = document.cookie
 //                 .split('; ')
 //                 .find(row => row.startsWith('XSRF-TOKEN='))
 //                 ?.split('=')[1];
-    
+
 //             // Step 3: Make the change password request with the CSRF token
 //             await axios.post(
 //                 `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/changpassword`,
@@ -528,18 +569,18 @@ export default UserWelcome;
 //                     withCredentials: true, // Ensure cookies are sent with the request
 //                 }
 //             );
-    
+
 //             // Step 4: Show success message
 //             message.success("Password changed successfully! You will be redirected to the login page in 3 seconds.");
-    
+
 //             // Step 5: Remove the access token
 //             Cookies.remove("access_token");
-    
+
 //             // Step 6: Delay the redirection to the login page
 //             setTimeout(() => {
 //                 router.push("/login");
 //             }, 3000); // 3 seconds delay
-    
+
 //             // Step 7: Close the modal
 //             handleModalClose();
 //         } catch (error: any) {
@@ -551,29 +592,32 @@ export default UserWelcome;
 //     // Dropdown menu items
 //     const items: MenuProps["items"] = [
 //         {
-//             key: "updateProfile",
-//             label: "Update Profile",
-//             onClick: () => handleMenuClick("updateProfile"),
-//         },
-//         {
 //             key: "profile",
-//             label: "Profile",
+//             label: `${translate ? translate.pages.welcomeUser.profile : ""}`,
+//             icon: <UserOutlined />,
+//             className: "personalDrop",
 //             onClick: () => handleMenuClick("profile"),
 //         },
 //         {
+//             key: "updateProfile",
+//             label: `${translate ? translate.pages.welcomeUser.editProfile : ""}`,
+//             icon: <EditOutlined />,
+//             className: "personalDrop",
+//             onClick: () => handleMenuClick("updateProfile"),
+//         },
+//         {
 //             key: "changePassword",
-//             label: "Change Password",
+//             label: `${translate ? translate.pages.welcomeUser.changePassword : ""}`,
+//             icon: <LockOutlined />,
+//             className: "personalDrop",
 //             onClick: () => handleMenuClick("changePassword"),
 //         },
 //         {
-//             key: "setting",
-//             label: "Setting",
-//             onClick: () => handleMenuClick("setting"),
-//         },
-//         {
 //             key: "logout",
-//             label: "Logout",
-//             onClick: handleLogout,
+//             label: `${translate ? translate.pages.welcomeUser.logOut : ""}`,
+//             icon: <LogoutOutlined />,
+//             className: "personalDrop",
+//             onClick: handleLogoutConfirmation,
 //         },
 //     ];
 
@@ -582,31 +626,31 @@ export default UserWelcome;
 //         switch (modalType) {
 //             case "updateProfile":
 //                 return (
-//                     <Form form={form} onFinish={handleEditProfile} layout="vertical">
+//                     <Form className="font-bold" form={form} onFinish={handleEditProfile} layout="vertical">
 //                         <Form.Item
 //                             name="name"
-//                             label="Name"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.name : ""}</span>}
 //                             rules={[{ required: true, message: "Please enter your name" }]}
 //                         >
 //                             <Input placeholder="Enter your name" />
 //                         </Form.Item>
 //                         <Form.Item
 //                             name="email"
-//                             label="Email"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.email : ""}</span>}
 //                             rules={[{ required: true, message: "Please enter your email" }]}
 //                         >
 //                             <Input placeholder="Enter your email" />
 //                         </Form.Item>
 //                         <Form.Item
 //                             name="mobile"
-//                             label="Mobile"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.mobile : ""}</span>}
 //                             rules={[{ required: true, message: "Please enter your mobile number" }]}
 //                         >
 //                             <Input placeholder="Enter your mobile number" />
 //                         </Form.Item>
 //                         <Form.Item>
-//                             <Button type="primary" htmlType="submit">
-//                                 Update Profile
+//                             <Button className="ms-auto customBtn font-cairo" type="primary" htmlType="submit">
+//                                 {translate ? translate.pages.welcomeUser.edit : ""}
 //                             </Button>
 //                         </Form.Item>
 //                     </Form>
@@ -615,14 +659,31 @@ export default UserWelcome;
 //                 return (
 //                     <Spin spinning={profileLoading}>
 //                         {profileData ? (
-//                             <div>
-//                                 <h3>Profile Information</h3>
-//                                 <p><strong>Name:</strong> {profileData.user.name}</p>
-//                                 <p><strong>Email:</strong> {profileData.user.email}</p>
-//                                 <p><strong>Mobile:</strong> {profileData.user.mobile}</p>
+//                             <div className="font-bold font-cairo">
+//                                 <h3 className="titleBox">
+//                                     {translate ? translate.pages.welcomeUser.profile : ""}
+//                                 </h3>
+//                                 <p className="mt-2">
+//                                     <strong className="mx-1">
+//                                         {translate ? translate.pages.welcomeUser.name : ""}
+//                                     </strong>
+//                                     {profileData.user.name}
+//                                 </p>
+//                                 <p className="my-2">
+//                                     <strong className="mx-1">
+//                                         {translate ? translate.pages.welcomeUser.email : ""}
+//                                     </strong>
+//                                     {profileData.user.email}
+//                                 </p>
+//                                 <p>
+//                                     <strong className="mx-1">
+//                                         {translate ? translate.pages.welcomeUser.mobile : ""}
+//                                     </strong>
+//                                     {profileData.user.mobile}
+//                                 </p>
 //                             </div>
 //                         ) : (
-//                             <p>No profile data available.</p>
+//                             <p>....</p>
 //                         )}
 //                     </Spin>
 //                 );
@@ -631,21 +692,21 @@ export default UserWelcome;
 //                     <Form form={form} onFinish={handleChangePassword} layout="vertical">
 //                         <Form.Item
 //                             name="old_password"
-//                             label="Old Password"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.oldPassword : ""}</span>}
 //                             rules={[{ required: true, message: "Please enter your old password" }]}
 //                         >
-//                             <Input.Password placeholder="Enter old password" />
+//                             <Input.Password placeholder={translate ? translate.pages.welcomeUser.oldPassword : ""} />
 //                         </Form.Item>
 //                         <Form.Item
 //                             name="password"
-//                             label="New Password"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.newPassword : ""}</span>}
 //                             rules={[{ required: true, message: "Please enter your new password" }]}
 //                         >
-//                             <Input.Password placeholder="Enter new password" />
+//                             <Input.Password placeholder={translate ? translate.pages.welcomeUser.newPassword : ""} />
 //                         </Form.Item>
 //                         <Form.Item
 //                             name="password_confirmation"
-//                             label="Confirm New Password"
+//                             label={<span className="font-cairo mainColor">{translate ? translate.pages.welcomeUser.confirmNewPassword : ""}</span>}
 //                             dependencies={["newPassword"]}
 //                             rules={[
 //                                 { required: true, message: "Please confirm your new password" },
@@ -659,17 +720,15 @@ export default UserWelcome;
 //                                 }),
 //                             ]}
 //                         >
-//                             <Input.Password placeholder="Confirm new password" />
+//                             <Input.Password placeholder={translate ? translate.pages.welcomeUser.confirmNewPassword : ""} />
 //                         </Form.Item>
 //                         <Form.Item>
-//                             <Button type="primary" htmlType="submit">
-//                                 Change Password
+//                             <Button className="ms-auto customBtn font-cairo" type="primary" htmlType="submit">
+//                                 {translate ? translate.pages.welcomeUser.changePassword : ""}
 //                             </Button>
 //                         </Form.Item>
 //                     </Form>
 //                 );
-//             case "setting":
-//                 return <div>Setting Options Go Here</div>;
 //             default:
 //                 return null;
 //         }
@@ -681,12 +740,16 @@ export default UserWelcome;
 //                 <span>Loading...</span>
 //             ) : user ? (
 //                 <>
-//                     <span className="mr-4">Welcome, {user.user.name}!</span>
-//                     <Dropdown menu={{ items }} trigger={["click"]}>
+//                     <span className="mx-4 bold">{user.user.name}</span>
+//                     <Dropdown
+//                         menu={{ items }}
+//                         trigger={["click"]}
+//                         overlayClassName="w-[200px] userDropDown"
+//                     >
 //                         <div className="cursor-pointer">
 //                             {/* Replace with your avatar or user icon */}
-//                             <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-//                                 <span className="text-white">{user.user.name.charAt(0)}</span>
+//                             <div className="w-10 h-10 bg-[#398AB7] rounded-full flex items-center justify-center">
+//                                 <span className="text-white font-bold">{user.user.name.charAt(0)}</span>
 //                             </div>
 //                         </div>
 //                     </Dropdown>
@@ -699,9 +762,28 @@ export default UserWelcome;
 //                     >
 //                         {renderModalContent()}
 //                     </Modal>
+
+//                     {/* Logout Confirmation Modal */}
+//                     <Modal
+//                         title={translate ? translate.pages.welcomeUser.confirmLogout : ""}
+//                         open={isLogoutModalOpen}
+//                         onOk={handleLogout}
+//                         onCancel={() => setIsLogoutModalOpen(false)}
+//                         okText={translate ? translate.pages.welcomeUser.logOut : ""}
+//                         cancelText={<span className="font-cairo font-bold">{translate ? translate.pages.welcomeUser.cancel : ""}</span>}
+//                         className="font-bold font-cairo"
+//                         okButtonProps={{
+//                             className: "font-cairo bold",
+//                             danger: true, // Add danger style
+//                           }}
+//                         cancelButtonProps={{
+//                             className: "btn-success",
+//                         }}
+//                     >
+//                     </Modal>
 //                 </>
 //             ) : (
-//                 <span>Not logged in</span>
+//                 <span className="">Not logged in</span>
 //             )}
 //         </div>
 //     );
