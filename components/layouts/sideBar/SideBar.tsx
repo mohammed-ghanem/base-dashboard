@@ -32,6 +32,12 @@ const SideBar = () => {
           </Link>
         </li>
         <li>
+          <Link prefetch={true} href={`/${lang}/roles`} className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+            <UserOutlined className="text-xl ml-2" />
+            <span className="hidden md:inline">الصلاحيات</span>
+          </Link>
+        </li>
+        <li>
           <Link href="/contact-us" className="flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
             <MailOutlined className="text-xl ml-2" />
             <span className="hidden md:inline">اتصل بنا</span>

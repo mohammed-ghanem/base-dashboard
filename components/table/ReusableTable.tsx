@@ -14,8 +14,6 @@ import {
   EditOutlined,
   EyeOutlined,
   DeleteOutlined,
-  ArrowLeftOutlined,
-  ArrowRightOutlined,
   LeftOutlined,
   RightOutlined,
 } from "@ant-design/icons";
