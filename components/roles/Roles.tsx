@@ -22,14 +22,15 @@ const Roles = () => {
         const csrfToken = document.cookie.split('; ').find(row => row.startsWith('XSRF-TOKEN='))
           ?.split('=')[1];
 
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/permissions`, {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/roles`, {
           headers: {
             'X-XSRF-TOKEN': csrfToken,
             Authorization: `Bearer ${token}`,
+            "Accept-Language": 'ar',
           },
           withCredentials: true,
         });
-        const formattedData = response.data.permissions.map((item: any, index: number) => ({
+        const formattedData = response.data.data.map((item: any, index: number) => ({
           key: item.id || index, // Unique key for each row
           name: item.name, // Assuming API returns 'name'
           description: item.description || "N/A", // Handle missing descriptions
@@ -45,7 +46,7 @@ const Roles = () => {
     };
 
     fetchPermissions();
-  }, []);
+  }, [data]);
 
   // Define Table Columns
   const columns = [
