@@ -22,7 +22,7 @@ html {
 body {
     position: relative;
     /* background: #EEF8FE; */
-    background: radial-gradient(circle, #add8e6 30%, #fff 100%);
+    background: radial-gradient(circle, #398ab738 30%, #fff 100%);
 }
 .hoverBox {
     background: #398AB7;
@@ -62,6 +62,16 @@ body {
     display: block!important;
     background-color: #398AB7!important;
     font-weight: bold!important;
+}
+.custom_spinner .ant-spin-dot{
+    color: #fff!important;
+}
+.custom_spinner .ant-spin-dot-spin{
+    font-size: 45px!important;
+}
+.custom_spinner .ant-spin-dot-item{
+    width: 20px!important;
+    height: 20px!important;
 }
 .bold {
     font-weight: bold!important;
