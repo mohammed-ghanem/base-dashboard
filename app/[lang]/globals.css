@@ -6,6 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .btn_success {
+      @apply bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+    }
+  }
+
 
 @keyframes spin {
     from {
@@ -23,6 +29,12 @@ body {
     position: relative;
     /* background: #EEF8FE; */
     background: radial-gradient(circle, #398ab738 30%, #fff 100%);
+}
+.gradientBkColor {
+    background: radial-gradient(circle, #398ab738 30%, #fff 100%);
+}
+.custom_shadow{
+    box-shadow: 0 1px 8px #398ab729;
 }
 .hoverBox {
     background: #398AB7;
