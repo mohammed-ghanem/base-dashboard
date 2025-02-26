@@ -39,8 +39,9 @@ const EditRole = () => {
     const [roleNameEn, setRoleNameEn] = useState<string>(''); // English name
     const [selectedPermissions, setSelectedPermissions] = useState<number[]>([]); // Track selected control IDs
 
-    // Fetch permissions and role data
+
     useEffect(() => {
+
         const fetchData = async () => {
             const accessToken = Cookies.get('access_token');
 
@@ -74,19 +75,20 @@ const EditRole = () => {
                     }
                 );
 
-                const role: Role = roleResponse.data.data;
+                const role: Role = roleResponse.data.data.role;
                 console.log('Fetched Role Data:', role); // Debugging
 
                 // Set role names
-                setRoleNameAr(roleResponse.data.data.role.name_ar);
-                setRoleNameEn(roleResponse.data.data.role.name_en);
+                setRoleNameAr(role.name_ar);
+                setRoleNameEn(role.name_en);
+
+                console.log(role.name_ar)
                 // Extract selected control IDs from role permissions
-                const selectedControls = roleResponse.data.data.role.permissions.flatMap(({ permission }: any) =>
-                    permission.controls.map(({ control }: any) => control.id)
+                const selectedControls = role.permissions.flatMap((permission) =>
+                    permission.controls.map((control) => control.id)
                 );
                 setSelectedPermissions(selectedControls);
             } catch (err) {
-
                 setError('Failed to fetch data');
             } finally {
                 setLoading(false);
@@ -95,6 +97,7 @@ const EditRole = () => {
 
         fetchData();
     }, [id]);
+
 
     // Handle checkbox change
     const handleCheckboxChange = (controlId: number) => {
@@ -128,8 +131,8 @@ const EditRole = () => {
                 `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/roles/${id}`,
                 {
                     name: {
-                        name_ar: roleNameAr, // Arabic name
-                        name_en: roleNameEn, // English name
+                        ar: roleNameAr, // Arabic name
+                        en: roleNameEn, // English name
                     },
                     role_permissions: selectedPermissions, // Selected control IDs
                 },
@@ -141,7 +144,11 @@ const EditRole = () => {
                 }
             );
 
-            console.log('Role updated successfully:', response.data); // Debugging
+            // Update the state with the new data
+            setRoleNameAr(response.data.data.role.name_ar);
+            setRoleNameEn(response.data.data.role.name_en);
+
+
             message.success('Role updated successfully!'); // Show success message
             router.push('/roles'); // Navigate back to the roles page
         } catch (err) {
@@ -154,6 +161,14 @@ const EditRole = () => {
                 message.error('Failed to update role'); // Show error message
             }
         }
+
+        console.log('Payload:', {
+            name: {
+                name_ar: roleNameAr,
+                name_en: roleNameEn,
+            },
+            role_permissions: selectedPermissions,
+        });
     };
 
     // Function to show Ant Design error modal

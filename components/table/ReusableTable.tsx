@@ -27,13 +27,13 @@ interface ReusableTableProps {
   showFirstLast?: boolean; // Show first/last page buttons
   pageSizeOptions?: number[]; // Custom page size options
   defaultPageSize?: number; // Default page size
-  actions?: {
-    // Optional action buttons
-    show?: boolean; // Show button
-    edit?: boolean; // Edit button
-    delete?: boolean; // Delete button
-    custom?: (record: any) => React.ReactNode; // Custom button(s)
-  };
+  // actions?: {
+  //   // Optional action buttons
+  //   show?: boolean; // Show button
+  //   edit?: boolean; // Edit button
+  //   delete?: boolean; // Delete button
+  //   custom?: (record: any) => React.ReactNode; // Custom button(s)
+  // };
   checkStrictly?: boolean; // Enable/disable CheckStrictly for row selection
 }
 
@@ -45,7 +45,7 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
   showFirstLast = true,
   pageSizeOptions = [10, 20, 50, 100],
   defaultPageSize = 10,
-  actions = { show: true, edit: true, delete: true }, // Default actions
+  // actions = { show: true, edit: true, delete: true }, // Default actions
   checkStrictly = false, // Default CheckStrictly
 }) => {
   const [searchText, setSearchText] = useState("");
@@ -147,41 +147,41 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
   enhancedColumns.unshift(iterationColumn);
 
   // Add action column if actions are enabled
-  if (actions.show || actions.edit || actions.delete || actions.custom) {
-    enhancedColumns.push({
-      title: "Actions",
-      key: "actions",
-      render: (text: string, record: any) => (
-        <Space size="middle">
-          {actions.show && (
-            <Button
-              type="link"
-              icon={<EyeOutlined />}
-              onClick={() => handleShow(record)}
-            ></Button>
-          )}
-          {actions.edit && (
-            <Button
-              type="link"
-              icon={<EditOutlined />}
-              onClick={() => handleEdit(record)}
-            ></Button>
-          )}
-          {actions.delete && (
-            <Popconfirm
-              title="Are you sure you want to delete this record?"
-              onConfirm={() => handleDelete(record)}
-              okText="Yes"
-              cancelText="No"
-            >
-              <Button type="link" icon={<DeleteOutlined />} danger></Button>
-            </Popconfirm>
-          )}
-          {actions.custom && actions.custom(record)}
-        </Space>
-      ),
-    });
-  }
+  // if (actions.show || actions.edit || actions.delete || actions.custom) {
+  //   enhancedColumns.push({
+  //     title: "Actions",
+  //     key: "actions",
+  //     render: (text: string, record: any) => (
+  //       <Space size="middle">
+  //         {actions.show && (
+  //           <Button
+  //             type="link"
+  //             icon={<EyeOutlined />}
+  //             onClick={() => handleShow(record)}
+  //           ></Button>
+  //         )}
+  //         {actions.edit && (
+  //           <Button
+  //             type="link"
+  //             icon={<EditOutlined />}
+  //             onClick={() => handleEdit(record)}
+  //           ></Button>
+  //         )}
+  //         {actions.delete && (
+  //           <Popconfirm
+  //             title="Are you sure you want to delete this record?"
+  //             onConfirm={() => handleDelete(record)}
+  //             okText="Yes"
+  //             cancelText="No"
+  //           >
+  //             <Button type="link" icon={<DeleteOutlined />} danger></Button>
+  //           </Popconfirm>
+  //         )}
+  //         {actions.custom && actions.custom(record)}
+  //       </Space>
+  //     ),
+  //   });
+  // }
 
   // Handle actions
   const handleShow = (record: any) => {

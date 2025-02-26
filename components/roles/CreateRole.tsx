@@ -5,6 +5,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { message, Modal } from 'antd'; // Import Ant Design components
 import { ExclamationCircleFilled } from '@ant-design/icons'; // Import error icon
+import {  useRouter } from 'next/navigation'; // Use next/navigation for App Router
 
 interface Control {
   id: number;
@@ -24,6 +25,7 @@ const CreateRole = () => {
   const [roleNameAr, setRoleNameAr] = useState<string>(''); // Arabic name
   const [roleNameEn, setRoleNameEn] = useState<string>(''); // English name
   const [selectedPermissions, setSelectedPermissions] = useState<number[]>([]); // Track selected control IDs
+    const router = useRouter();
 
   // Fetch permissions
   useEffect(() => {
@@ -105,6 +107,7 @@ const CreateRole = () => {
 
       console.log('Role created successfully:', response.data);
       message.success('Role created successfully!'); // Show success message
+      router.push('/roles'); // Navigate back to the roles page
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.status === 422) {
         setError('You must select at least one role.');
