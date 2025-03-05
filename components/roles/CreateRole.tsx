@@ -44,12 +44,14 @@ const CreateRole = () => {
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
+              "api-key": process.env.NEXT_PUBLIC_API_KEY,
               'Accept-Language': 'ar',
+              
             },
           }
         );
 
-        setPermissions(response.data.permissions);
+        setPermissions(response.data.data);
       } catch (err) {
         setError('Failed to fetch permissions');
       } finally {
@@ -100,6 +102,7 @@ const CreateRole = () => {
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
             'Accept-Language': 'ar',
           },
         }

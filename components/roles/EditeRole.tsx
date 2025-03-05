@@ -58,11 +58,12 @@ const EditRole = () => {
                     {
                         headers: {
                             Authorization: `Bearer ${accessToken}`,
+                            "api-key": process.env.NEXT_PUBLIC_API_KEY,
                             'Accept-Language': 'ar',
                         },
                     }
                 );
-                setPermissions(permissionsResponse.data.permissions);
+                setPermissions(permissionsResponse.data.data);
 
                 // Fetch role data
                 const roleResponse = await axios.get(
@@ -70,6 +71,7 @@ const EditRole = () => {
                     {
                         headers: {
                             Authorization: `Bearer ${accessToken}`,
+                            "api-key": process.env.NEXT_PUBLIC_API_KEY,
                             'Accept-Language': 'ar',
                         },
                     }
@@ -139,6 +141,7 @@ const EditRole = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
+                        "api-key": process.env.NEXT_PUBLIC_API_KEY,
                         'Accept-Language': 'ar',
                     },
                 }

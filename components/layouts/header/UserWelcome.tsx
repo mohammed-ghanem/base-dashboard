@@ -7,6 +7,7 @@ import axios from "axios";
 import type { MenuProps } from "antd"; // Import MenuProps type
 import TranslateHook from "@/components/translate/TranslateHook";
 import { UserOutlined, EditOutlined, LockOutlined, LogoutOutlined } from "@ant-design/icons";
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 const UserWelcome = () => {
     const router = useRouter();
@@ -17,7 +18,6 @@ const UserWelcome = () => {
     const [profileData, setProfileData] = useState<any>(null); // State to store profile data
     const [profileLoading, setProfileLoading] = useState<boolean>(false); // Loading state for profile data
     const [form] = Form.useForm(); // Form instance for Ant Design forms
-    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState<boolean>(false); // State to control logout confirmation modal visibility
     const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false); // State to manage logout loading overlay
     // lang
     const translate = TranslateHook();
@@ -30,6 +30,7 @@ const UserWelcome = () => {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/profile`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
+                        "api-key": process.env.NEXT_PUBLIC_API_KEY,
                     },
                 });
                 setUser(response.data.data); // Set the user data in the state
@@ -45,14 +46,27 @@ const UserWelcome = () => {
 
     // Handle logout confirmation
     const handleLogoutConfirmation = () => {
-        setIsLogoutModalOpen(true);
+        Swal.fire({
+            title: translate ? translate.pages.welcomeUser.confirmLogout : "Are you sure?",
+            text: "You will be logged out!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: translate ? translate.pages.welcomeUser.logOut : "Logout",
+            cancelButtonText: translate ? translate.pages.welcomeUser.cancel : "Cancel",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleLogout();
+            }
+        });
     };
 
     // Handle actual logout
     const handleLogout = () => {
         setIsLoggingOut(true); // Show loading overlay
         Cookies.remove("access_token"); // Remove the access token
-        message.success("You have been logged out."); // Show success message
+        message.success(<span className="font-cairo">{translate ? translate.pages.welcomeUser.logoutSuccess : "Logout successful"}</span>); // Show success message
 
         // Delay the redirection to show the loading overlay
         setTimeout(() => {
@@ -74,6 +88,7 @@ const UserWelcome = () => {
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/profile`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
+                        "api-key": process.env.NEXT_PUBLIC_API_KEY,
                     },
                 });
                 setProfileData(response.data.data); // Set the profile data in the state
@@ -119,6 +134,8 @@ const UserWelcome = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
+                        "api-key": process.env.NEXT_PUBLIC_API_KEY,
+
                     },
                     withCredentials: true, // Ensure cookies are sent with the request
                 }
@@ -161,6 +178,8 @@ const UserWelcome = () => {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
                         'X-XSRF-TOKEN': csrfToken, // Include the CSRF token in the request headers
+                        "api-key": process.env.NEXT_PUBLIC_API_KEY,
+
                     },
                     withCredentials: true, // Ensure cookies are sent with the request
                 }
@@ -377,25 +396,6 @@ const UserWelcome = () => {
                     >
                         {renderModalContent()}
                     </Modal>
-
-                    {/* Logout Confirmation Modal */}
-                    <Modal
-                        title={translate ? translate.pages.welcomeUser.confirmLogout : ""}
-                        open={isLogoutModalOpen}
-                        onOk={handleLogout}
-                        onCancel={() => setIsLogoutModalOpen(false)}
-                        okText={translate ? translate.pages.welcomeUser.logOut : ""}
-                        cancelText={<span className="font-cairo font-bold">{translate ? translate.pages.welcomeUser.cancel : ""}</span>}
-                        className="font-bold font-cairo"
-                        okButtonProps={{
-                            className: "font-cairo bold",
-                            danger: true, // Add danger style
-                        }}
-                        cancelButtonProps={{
-                            className: "btn-success",
-                        }}
-                    >
-                    </Modal>
                 </>
             ) : (
                 <span className="">Not logged in</span>
@@ -405,6 +405,7 @@ const UserWelcome = () => {
 };
 
 export default UserWelcome;
+
 
 
 
@@ -429,8 +430,10 @@ export default UserWelcome;
 //     const [profileLoading, setProfileLoading] = useState<boolean>(false); // Loading state for profile data
 //     const [form] = Form.useForm(); // Form instance for Ant Design forms
 //     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState<boolean>(false); // State to control logout confirmation modal visibility
+//     const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false); // State to manage logout loading overlay
 //     // lang
 //     const translate = TranslateHook();
+
 //     // Fetch user profile data
 //     useEffect(() => {
 //         const fetchProfile = async () => {
@@ -439,6 +442,7 @@ export default UserWelcome;
 //                 const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/profile`, {
 //                     headers: {
 //                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
+//                         "api-key": process.env.NEXT_PUBLIC_API_KEY,
 //                     },
 //                 });
 //                 setUser(response.data.data); // Set the user data in the state
@@ -459,10 +463,15 @@ export default UserWelcome;
 
 //     // Handle actual logout
 //     const handleLogout = () => {
+//         setIsLoggingOut(true); // Show loading overlay
 //         Cookies.remove("access_token"); // Remove the access token
 //         message.success("You have been logged out."); // Show success message
-//         router.push("/login"); // Redirect to login page
-//         setIsLogoutModalOpen(false); // Close the logout confirmation modal
+
+//         // Delay the redirection to show the loading overlay
+//         setTimeout(() => {
+//             router.push("/login"); // Redirect to login page
+//             setIsLoggingOut(false); // Hide loading overlay after redirection
+//         }, 1000); // 1 second delay
 //     };
 
 //     // Open modal based on the selected option
@@ -478,6 +487,7 @@ export default UserWelcome;
 //                 const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/profile`, {
 //                     headers: {
 //                         Authorization: `Bearer ${token}`, // Include the access token in the request headers
+//                         "api-key": process.env.NEXT_PUBLIC_API_KEY,
 //                     },
 //                 });
 //                 setProfileData(response.data.data); // Set the profile data in the state
@@ -734,8 +744,27 @@ export default UserWelcome;
 //         }
 //     };
 
+//     // Loading Overlay Component
+//     const LoadingOverlay = () => (
+//         <div style={{
+//             position: 'fixed',
+//             top: 0,
+//             left: 0,
+//             width: '100%',
+//             height: '100%',
+//             backgroundColor: 'rgba(0, 0, 0, 0.5)',
+//             display: 'flex',
+//             justifyContent: 'center',
+//             alignItems: 'center',
+//             zIndex: 1000,
+//         }}>
+//             <Spin size="large" />
+//         </div>
+//     );
+
 //     return (
 //         <div className="flex items-center">
+//             {isLoggingOut && <LoadingOverlay />} {/* Show loading overlay if logging out */}
 //             {loading ? (
 //                 <span>Loading...</span>
 //             ) : user ? (
@@ -775,7 +804,7 @@ export default UserWelcome;
 //                         okButtonProps={{
 //                             className: "font-cairo bold",
 //                             danger: true, // Add danger style
-//                           }}
+//                         }}
 //                         cancelButtonProps={{
 //                             className: "btn-success",
 //                         }}

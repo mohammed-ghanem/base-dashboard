@@ -40,6 +40,7 @@ const Roles = () => {
           headers: {
             "X-XSRF-TOKEN": csrfToken,
             Authorization: `Bearer ${token}`,
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
             "Accept-Language": "ar",
           },
           withCredentials: true,
@@ -47,7 +48,7 @@ const Roles = () => {
       );
 
       // Map the API response to include the `is_active` field
-      const formattedData = response.data.data.map((item: any, index: number) => ({
+      const formattedData = response.data.data.data.map((item: any, index: number) => ({
         key: item.id || index, // Unique key for each row
         name: item.name, // Role name
         description: item.description || "N/A", // Handle missing descriptions
@@ -81,6 +82,7 @@ const Roles = () => {
           headers: {
             "X-XSRF-TOKEN": csrfToken,
             Authorization: `Bearer ${token}`,
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
             "Accept-Language": "ar",
           },
           withCredentials: true,
@@ -109,14 +111,15 @@ const Roles = () => {
         .find((row) => row.startsWith("XSRF-TOKEN="))
         ?.split("=")[1];
 
-      // Send a PUT request to update the status
-      await axios.put(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/roles/${id}/status`,
+      // Send a post request to update the status
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/roles/toggle-role/${id}`,
         { is_active: checked }, // Send the new status in the request body
         {
           headers: {
             "X-XSRF-TOKEN": csrfToken,
             Authorization: `Bearer ${token}`,
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
             "Accept-Language": "ar",
           },
           withCredentials: true,
@@ -223,14 +226,17 @@ const Roles = () => {
       <Link href={`/${lang}/roles/create`} className="titleBox">
         اضافة صلاحية
       </Link>
-      <ReusableTable
-        dataSource={data}
-        columns={columns}
-        pagination={true}
-        searchable={true}
-        showFirstLast={true}
-        defaultPageSize={10}
-      />
+      <div className='w-[95%] container mx-auto'>
+        <ReusableTable
+          dataSource={data}
+          columns={columns}
+          pagination={true}
+          searchable={true}
+          showFirstLast={true}
+          defaultPageSize={10}
+        />
+      </div>
+
     </div>
   );
 };

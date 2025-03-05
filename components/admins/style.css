@@ -1,0 +1,9 @@
+.react-tel-input input {
+    width: 100% !important;
+} 
+.react-tel-input .selected-flag {
+    width: 45px !important;
+}
+.ant-form-item-explain-error {
+    margin-top: 5px !important;
+}

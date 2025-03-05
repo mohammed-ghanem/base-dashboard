@@ -74,7 +74,8 @@
             "oldPassword" :"Current Password",
             "newPassword":"New Password",
             "confirmNewPassword" :"confirm Password",
-            "confirmLogout": "Confirm Logout"
+            "confirmLogout": "Confirm Logout",
+            "logoutSuccess" :"Logout Successful!"
          },
         "forgotPassword" : {
             "title" : "Forgot Password ?",

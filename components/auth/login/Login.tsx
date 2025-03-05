@@ -54,6 +54,8 @@ const Login = () => {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/auth/login`, form, {
         headers: {
           'X-XSRF-TOKEN': csrfToken,
+          'Api-Key': process.env.NEXT_PUBLIC_API_KEY,
+          
         },
         withCredentials: true,
       });

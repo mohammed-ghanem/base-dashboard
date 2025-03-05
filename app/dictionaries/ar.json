@@ -74,7 +74,8 @@
             "oldPassword" : "كلمة المرور السابقة",
             "newPassword" :"كلمة المرور الجديدة ",
             "confirmNewPassword" :"تاكد كلمة المرور الجديد ",
-            "confirmLogout" : "تأكيد تسجيل الخروج"
+            "confirmLogout" : "تأكيد تسجيل الخروج",
+            "logoutSuccess" :"تم تسجيل الخروج بنجاح"
             
          },
         "forgotPassword" : {
