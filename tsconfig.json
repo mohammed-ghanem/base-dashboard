@@ -23,10 +23,10 @@
       }
     ],
     "paths": {
-      "@/constants/*" : ["./constants/*"],
-      "@/utils/*" : ["./utils/*"],
-      "@/components/*" :["./components/*"],
-      "@/*": ["./*"],
+      "@/constants/*": ["./constants/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/components/*": ["./components/*"],
+      "@/*": ["./*"]
     }
   },
   "include": [
@@ -40,4 +40,3 @@
     "node_modules"
   ]
 }
- 

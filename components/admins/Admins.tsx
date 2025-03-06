@@ -4,10 +4,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import ReusableTable from '../table/ReusableTable'; // Adjust the import path as needed
 import { message, Modal, Space, Switch } from 'antd'; // Import Switch from Ant Design
-import { EyeOutlined, DeleteOutlined } from '@ant-design/icons'; // Import icons
+import { EyeOutlined, DeleteOutlined, EditOutlined, LockOutlined } from '@ant-design/icons'; // Import icons
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import Link from 'next/link';
 import LangUseParams from '../translate/LangUseParams';
+import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 
 // Define the type for admin data
 interface Admin {
@@ -24,7 +25,7 @@ const Admins = () => {
     const [selectedAdmin, setSelectedAdmin] = useState<Admin | null>(null); // State to store the selected admin for viewing
     const [isModalVisible, setIsModalVisible] = useState(false); // State to control modal visibility
     const lang = LangUseParams(); // Access dynamic [lang] parameter
-
+    const router = useRouter(); // Initialize useRouter
 
     // Fetch admin data from the API
     useEffect(() => {
@@ -139,6 +140,11 @@ const Admins = () => {
         }
     };
 
+    // Handle edit action
+    const handleEdit = (record: Admin) => {
+        router.push(`/${lang}/admins/edit/${record.key}`); // Redirect to the edit page
+    };
+
     // Show SweetAlert2 confirmation before deleting
     const confirmDelete = (record: Admin) => {
         Swal.fire({
@@ -154,6 +160,11 @@ const Admins = () => {
                 handleDelete(record); // Call the delete function if confirmed
             }
         });
+    };
+
+    // Check if the admin is protected (name is "admin" or "ادمن")
+    const isProtectedAdmin = (name: string) => {
+        return name.toLowerCase() === 'admin' || name.toLowerCase() === 'ادمن';
     };
 
     // Define columns for the table
@@ -180,10 +191,14 @@ const Admins = () => {
             title: 'Status',
             key: 'status',
             render: (text: string, record: Admin) => (
-                <Switch
-                    checked={record.is_active === 1} // Convert 0/1 to boolean
-                    onChange={(checked) => handleStatusToggle(record.key, checked)}
-                />
+                isProtectedAdmin(record.name) ? (
+                    <LockOutlined style={{ color: '#faad14', fontSize: '18px' }} />
+                ) : (
+                    <Switch
+                        checked={record.is_active === 1} // Convert 0/1 to boolean
+                        onChange={(checked) => handleStatusToggle(record.key, checked)}
+                    />
+                )
             ),
         },
         {
@@ -197,12 +212,26 @@ const Admins = () => {
                         onClick={() => handleView(record)}
                         style={{ color: '#1890ff' }}
                     />
+                    {/* Edit Icon */}
+                    {isProtectedAdmin(record.name) ? (
+                        <LockOutlined style={{ color: '#faad14', fontSize: '18px' }} />
+                    ) : (
+                        <EditOutlined
+                            className='text-xl cursor-pointer'
+                            onClick={() => handleEdit(record)}
+                            style={{ color: '#52c41a' }}
+                        />
+                    )}
                     {/* Delete Icon */}
-                    <DeleteOutlined
-                        className='text-xl cursor-pointer'
-                        onClick={() => confirmDelete(record)}
-                        style={{ color: '#f5222d' }}
-                    />
+                    {isProtectedAdmin(record.name) ? (
+                        <LockOutlined style={{ color: '#faad14', fontSize: '18px' }} />
+                    ) : (
+                        <DeleteOutlined
+                            className='text-xl cursor-pointer'
+                            onClick={() => confirmDelete(record)}
+                            style={{ color: '#f5222d' }}
+                        />
+                    )}
                 </Space>
             ),
         },
