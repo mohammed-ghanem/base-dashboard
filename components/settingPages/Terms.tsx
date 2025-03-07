@@ -12,6 +12,7 @@ import axios, { AxiosError } from "axios";
 import { message, Spin } from "antd";
 import LangUseParams from "../translate/LangUseParams";
 import Cookies from "js-cookie";
+import TiptapEditor from "../tiptab/TiptapEditor";
 
 // Define the structure of the terms data
 interface TermsValue {
@@ -134,8 +135,17 @@ const Terms: React.FC = () => {
     }
 
     return (
-        <div className="max-w-lg mx-auto p-4 bg-white shadow-md rounded">
+        <div className="mt-8 container w-[95%] mx-auto p-4 bg-white shadow-md rounded">
+
+
+            <div className="my-10">
+                <TiptapEditor />
+            </div>
+
+
             <h1 className="text-xl font-semibold mb-4">Terms and Conditions</h1>
+
+
 
             {errors.length > 0 && (
                 <div className="mb-4 p-2 bg-red-100 text-red-700 border border-red-400 rounded">
