@@ -1,0 +1,71 @@
+.resizable-image {
+    resize: both;
+    overflow: auto;
+  }
+  .ProseMirror:focus {
+    outline: none;
+  }
+/* Resizable images */
+.resizable-image {
+    resize: both;
+    overflow: auto;
+    max-width: 100%;
+    cursor: pointer;
+  }
+  
+  /* Image alignment */
+  img[style*="float: left"] {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  img[style*="float: right"] {
+    float: right;
+    margin-left: 10px;
+  }
+  
+  img[style*="margin-left: auto"] {
+    display: block;
+    margin: 0 auto;
+  }  
+
+  /* Override ProseMirror min-height */
+.ProseMirror {
+    min-height: auto !important; /* Remove the default min-height */
+    height: 100%; /* Ensure the editor fills the container */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    outline: none; /* Remove focus outline */
+  }
+  
+/* Parent container */
+.editor-container {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 200px; /* Set a minimum height */
+    height: 300px; /* Default height */
+    overflow-y: auto;
+  }
+
+  
+  /* Ensure the editor fills the parent container */
+  .ProseMirror {
+    min-height: 275px !important;
+    height: 100%; /* Fill the parent container */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    outline: none; /* Remove focus outline */
+    border: none;
+  }
+  
+  .resizable-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    cursor: grab;
+    border: 1px dashed #ccc;
+    resize: both;
+    overflow: hidden;
+  }
+  
