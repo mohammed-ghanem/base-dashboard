@@ -28,14 +28,6 @@
     display: block;
     margin: 0 auto;
   }  
-
-  /* Override ProseMirror min-height */
-.ProseMirror {
-    min-height: auto !important; /* Remove the default min-height */
-    height: 100%; /* Ensure the editor fills the container */
-    padding: 10px; /* Optional: Add padding for better spacing */
-    outline: none; /* Remove focus outline */
-  }
   
 /* Parent container */
 .editor-container {
@@ -57,6 +49,11 @@
     padding: 10px; /* Optional: Add padding for better spacing */
     outline: none; /* Remove focus outline */
     border: none;
+  }
+
+  .ProseMirror:focus-visible {
+    outline: none!important;
+    border: none!important;
   }
   
   .resizable-image {
