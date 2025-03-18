@@ -64,16 +64,35 @@ p {
   /* margin: revert; */
 }
 
+
 .ckeditor-container {
-  height: 100%; /* Make the container flexible */
-  min-height: 200px; /* Set a minimum height */
-  max-height: 500px; /* Set a maximum height (optional) */
-  overflow: auto; /* Add scroll if content exceeds height */
+  height: 100%;
+  min-height: 300px; /* Minimum height */
+  max-height: 500px; /* Maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  border-radius: 4px; /* Optional: Add rounded corners */
+  background: #e9f3f8;
+  width: 100%;
+  margin: auto;
+  
+  
 }
 
-.ckeditor-container .ck-editor__editable {
-  height: 100%; /* Make the editor content area flexible */
-  min-height: 200px; /* Set a minimum height for the editor */
-  max-height: 500px; /* Set a maximum height for the editor (optional) */
-  overflow: auto; /* Add scroll if content exceeds height */
+.ck-content {
+  height: 100% !important; /* Ensure the editor content fills the container */
+  min-height: 300px !important; /* Minimum height for the editor content */
+  overflow-y: auto !important; /* Enable vertical scrolling */
+  overflow-x: hidden !important; /* Disable horizontal scrolling */
+}
+.ck-dropdown__panel-visible{
+  overflow-y: auto!important;
+  height: 100%!important;
+  display: block!important;
+  min-height: 260px!important;
+}
+.ckeditor-container p {
+  line-height: 0.7 !important;  /* Reduces space between lines */
+  word-spacing: -2px !important; /* Reduces space between words */
 }

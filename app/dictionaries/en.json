@@ -1,201 +1,217 @@
 {
-    "navigation" : {
+    "navigation": {
         "home": "Home"
     },
-    "pages" : {
-        "homePage" : {
-            "statistics" : {
+    "pages": {
+        "homePage": {
+            "statistics": {
                 "FreeCourses": "Free Courses",
-                "Books" : "Books",
-                "VideoLibirary" : "Video Libirary",
-                "AnswerQuestion"  : "Answer & Question",
-                "Subscribers"  : "Subscribers"
+                "Books": "Books",
+                "VideoLibirary": "Video Libirary",
+                "AnswerQuestion": "Answer & Question",
+                "Subscribers": "Subscribers"
             },
-            "titles" : {
-                "EducationalCourses" : "Educational courses",
-                "books" : "Books",
-                "VideoLibirary" : "Video Libirary",
-                "AnswerQuestion"  : "Answer & Question",
-                "MoreWatching" : "More Watching",
-                "SeeAll" : "More"
+            "titles": {
+                "EducationalCourses": "Educational courses",
+                "books": "Books",
+                "VideoLibirary": "Video Libirary",
+                "AnswerQuestion": "Answer & Question",
+                "MoreWatching": "More Watching",
+                "SeeAll": "More"
             },
-            "fatwaForm" :  {
-                "title" :  "Do you want to request a fatwa",
-                "help" : "We are waiting for you, we are happy to help you",
-                "name" : "name",
-                "message" : "Your Question",
-                "submit" : "send"
+            "fatwaForm": {
+                "title": "Do you want to request a fatwa",
+                "help": "We are waiting for you, we are happy to help you",
+                "name": "name",
+                "message": "Your Question",
+                "submit": "send"
             },
-            "footer" : {
-                "title" : "Social Media Links :",
-                "subscribers" : "Add your Email To Receive All New Updates",
-                "placeHolder" : "Email Address",
-                "submit" : "send",
-                "loading" : "Loading...",
-                "alreadySubscribed" : "This Email Is Already subscribed. Enter Another Email",
-                "aboutCenter" : "About Sorooj Center",
-                "fastLinks" : "Fast Links",
-                "contactUs" : "Contact Us",
-                "forMen" : "Men :",
-                "forWomen" : "Women :"
+            "footer": {
+                "title": "Social Media Links :",
+                "subscribers": "Add your Email To Receive All New Updates",
+                "placeHolder": "Email Address",
+                "submit": "send",
+                "loading": "Loading...",
+                "alreadySubscribed": "This Email Is Already subscribed. Enter Another Email",
+                "aboutCenter": "About Sorooj Center",
+                "fastLinks": "Fast Links",
+                "contactUs": "Contact Us",
+                "forMen": "Men :",
+                "forWomen": "Women :"
             }
         },
-        "signin" : {
-            "loginTitle" :"Log In",
-            "email" : "Email Address",
-            "passwordName" : "Password",
-            "forgetPassword" : "Forget Password ?",
-            "loginButton" : "Log In",
-            "dontHaveUser" : "Dont Have Account ?",
+        "signin": {
+            "loginTitle": "Log In",
+            "email": "Email Address",
+            "passwordName": "Password",
+            "forgetPassword": "Forget Password ?",
+            "loginButton": "Log In",
+            "dontHaveUser": "Dont Have Account ?",
             "createAccount": "create account",
-            "LoginSuccessful" : "Login Successful!",
-            "redirectHome" : "You will be redirected to the home page !",
-            "ok":"OK",
-            "NotVerified" : "Account Not Verified !",
-            "newVerifyCode" : " Please verify your account.",
-            "Error" : "Error",
-            "failedResendCode" : "Failed to resend verification code. Please try again later.",
-            "verifyBeforeLogin" : "Please verify your account before logging in.",
-            "InvalidEmailOrPassword" : "Invalid email or password",
-            "InvalidEmailOrPasswordSwal" : "'Login Failed', 'Invalid email or password. Please try again.', 'error'",
-            "NetworkError": "Network Error', 'Please check your network connection and try again.', 'error'" ,
-            "SomethingWentWrong" : "'Error', 'Something went wrong. Please try again later.', 'error'"
+            "LoginSuccessful": "Login Successful!",
+            "redirectHome": "You will be redirected to the home page !",
+            "ok": "OK",
+            "NotVerified": "Account Not Verified !",
+            "newVerifyCode": " Please verify your account.",
+            "Error": "Error",
+            "failedResendCode": "Failed to resend verification code. Please try again later.",
+            "verifyBeforeLogin": "Please verify your account before logging in.",
+            "InvalidEmailOrPassword": "Invalid email or password",
+            "InvalidEmailOrPasswordSwal": "'Login Failed', 'Invalid email or password. Please try again.', 'error'",
+            "NetworkError": "Network Error', 'Please check your network connection and try again.', 'error'",
+            "SomethingWentWrong": "'Error', 'Something went wrong. Please try again later.', 'error'"
         },
-        "welcomeUser" : {
-            "profile" : "Personal Profile",
-            "editProfile" : "Edit Profile",
-            "changePassword" : "Change Password",
-            "logOut" : "Logout",
-            "cancel" : "Cancel",
+        "welcomeUser": {
+            "profile": "Personal Profile",
+            "editProfile": "Edit Profile",
+            "changePassword": "Change Password",
+            "logOut": "Logout",
+            "cancel": "Cancel",
             "name": "Name :",
-            "email" : "Email :",
-            "mobile" : "Mobile :",
-            "edit" : "Update",
-            "oldPassword" :"Current Password",
-            "newPassword":"New Password",
-            "confirmNewPassword" :"confirm Password",
+            "email": "Email :",
+            "mobile": "Mobile :",
+            "edit": "Update",
+            "oldPassword": "Current Password",
+            "newPassword": "New Password",
+            "confirmNewPassword": "confirm Password",
             "confirmLogout": "Confirm Logout",
-            "logoutSuccess" :"Logout Successful!"
-         },
-        "forgotPassword" : {
-            "title" : "Forgot Password ?",
-            "titleDescription" : "Enter your email to recover your password !",
-            "sendVerifyCode" : "Send",
-            "VerificationLinkSent" : " Verification Link Sent !",
-            "checkEmail" : "Please check your email for the verification link !"
+            "logoutSuccess": "Logout Successful!"
         },
-        "restPassword" : {
-            "title" : "Reset password",
-            "titleDescription" : "Reset your password !",
-            "password" : "Password",
-            "confirmPassword" : "confirm Password",
-            "sendRestPassword" : "Send",
-            "resetSuccessful" : "Password Reset Successful!",
-            "textReLogin" : "You can now login with your new password ."
+        "forgotPassword": {
+            "title": "Forgot Password ?",
+            "titleDescription": "Enter your email to recover your password !",
+            "sendVerifyCode": "Send",
+            "VerificationLinkSent": " Verification Link Sent !",
+            "checkEmail": "Please check your email for the verification link !"
         },
-        "changePassword" : {
-            "title" : "Change Password",
-            "titleDescription" : "Change your Old Password !",
-            "oldPassword" : "Current Password",
-            "newPassword" : "New Password",
-            "confirmNewPassword" : "confirm Password",
-            "sendNewPassword" : "send",
-            "titleSwal" : "Password Changed !",
-            "textSwal" : "Your password has been updated successfully, Now login with your new password .",
-            "ok" : "OK",
-            "loadingTitle" : "Please Wait ..."
+        "restPassword": {
+            "title": "Reset password",
+            "titleDescription": "Reset your password !",
+            "password": "Password",
+            "confirmPassword": "confirm Password",
+            "sendRestPassword": "Send",
+            "resetSuccessful": "Password Reset Successful!",
+            "textReLogin": "You can now login with your new password ."
+        },
+        "changePassword": {
+            "title": "Change Password",
+            "titleDescription": "Change your Old Password !",
+            "oldPassword": "Current Password",
+            "newPassword": "New Password",
+            "confirmNewPassword": "confirm Password",
+            "sendNewPassword": "send",
+            "titleSwal": "Password Changed !",
+            "textSwal": "Your password has been updated successfully, Now login with your new password .",
+            "ok": "OK",
+            "loadingTitle": "Please Wait ..."
 
         },
-        "verifyCode" :  {
-            "title" : "Verify Code",
-            "titleDescription" : "Enter the verification code sent to your email!",
-            "verifyCode" : "Enter Verification Code",
-            "verifyButton" : "Verify",
-            "titleSwal" : "Account Verified successfully!",
-            "textSwal" : "Your account has been verified successfully",
-            "ok" : "OK",
-            "loadingTitle" : "Please Wait ...",
-            "resendNewOtp" : "Resend new verification code",
-            "in" : "in",
-            "didntGetOtp" : "didnt receive verification code ?",
-            "resendOtptitleSwal" : "Resending verification code ...",
-            "notAuthenticated" : "User is not authenticated",
-            "newOptSent" : "A new verify code has been sent to your email , success !!",
-            "faildOtp" : "Error ,Unable to resend verify code. Please try again later."
+        "verifyCode": {
+            "title": "Verify Code",
+            "titleDescription": "Enter the verification code sent to your email!",
+            "verifyCode": "Enter Verification Code",
+            "verifyButton": "Verify",
+            "titleSwal": "Account Verified successfully!",
+            "textSwal": "Your account has been verified successfully",
+            "ok": "OK",
+            "loadingTitle": "Please Wait ...",
+            "resendNewOtp": "Resend new verification code",
+            "in": "in",
+            "didntGetOtp": "didnt receive verification code ?",
+            "resendOtptitleSwal": "Resending verification code ...",
+            "notAuthenticated": "User is not authenticated",
+            "newOptSent": "A new verify code has been sent to your email , success !!",
+            "faildOtp": "Error ,Unable to resend verify code. Please try again later."
         },
         "EmailForOtp": {
-            "title" : "To Verify Your Account",
-            "titleDescription" : "Send your Email , to get the verify code",
-            "email" :"Email Address",
-            "send" : "send",
-            "otpSenttitle" : "OTP Sent",
-            "otpSenttext" : "OTP has been sent to your email , success !!",
-            "ok" : "ok",
-            "InvalidEmail" : "Invalid Email",
-            "faildOtp" : "Please enter a valid email address.",
-            "UnauthorizedTitle" : "Unauthorized",
-            "UnauthorizedText" : "Please check your email or contact support.",
-            "error" : "Something went wrong. Please try again later."
-         },
-         "userProfile" : {
-            "title" : "My Account",
-            "editProfile" : "Edit Profile",
-            "save" : "Save",
-            "firstName" : "First Name",
-            "lastName" : "Last Name",
-            "email" :"Email Address",
-            "phoneNumber" : "Phone Number",
-            "editSuccess" : "Profile Updated Successfully",
-            "editFailed" : "Failed to Update Profile",
-            "ok" : "OK",
-            "edit" : "Update" ,
-            "editProfileTitle" : "Edit Profile",
-            "myCourses" :"My Courses",
-            "continue" : "continue",
-            "myFavorites" : "My Favorites",
-            "myQuestions" : "My Questions",
-            "view" : "View",
-            "viewAnswer" : "View Answer",
-            "noCourses" : "You have no courses",
-            "prev" : "prev",
-            "next" : "next",
-            "noFavorites" : "You have no favorite subjects",
-            "noQuestions" : "You have no questions"
+            "title": "To Verify Your Account",
+            "titleDescription": "Send your Email , to get the verify code",
+            "email": "Email Address",
+            "send": "send",
+            "otpSenttitle": "OTP Sent",
+            "otpSenttext": "OTP has been sent to your email , success !!",
+            "ok": "ok",
+            "InvalidEmail": "Invalid Email",
+            "faildOtp": "Please enter a valid email address.",
+            "UnauthorizedTitle": "Unauthorized",
+            "UnauthorizedText": "Please check your email or contact support.",
+            "error": "Something went wrong. Please try again later."
+        },
+        "userProfile": {
+            "title": "My Account",
+            "editProfile": "Edit Profile",
+            "save": "Save",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email Address",
+            "phoneNumber": "Phone Number",
+            "editSuccess": "Profile Updated Successfully",
+            "editFailed": "Failed to Update Profile",
+            "ok": "OK",
+            "edit": "Update",
+            "editProfileTitle": "Edit Profile",
+            "myCourses": "My Courses",
+            "continue": "continue",
+            "myFavorites": "My Favorites",
+            "myQuestions": "My Questions",
+            "view": "View",
+            "viewAnswer": "View Answer",
+            "noCourses": "You have no courses",
+            "prev": "prev",
+            "next": "next",
+            "noFavorites": "You have no favorite subjects",
+            "noQuestions": "You have no questions"
 
 
-            
-         },
-         "profileCategory" : {
-              "logoutTitle" : "Are you sure ?",
-              "logoutDescription" : "You will be logged out from your account !",
-              "logout" : "Logout",
-              "ok" : "OK",
-              "cancel" : "Cancel",
-              "logoutSuccess" : "You have been successfully logged out .",
-              "personalInfo" : "Personal Information",
-              "myCourses" : "My Courses",
-              "favoriteSubjects" : "Favorite Subjects",
-              "myQuestions" : "My Questions",
-              "comments" : "My Comments",
-              "changePassword" : "Change Password"
-         },
-         "coursesContentPage" :{
-             "bannerPathText"  : "course content"
-         },
-         "booksContentPage" :{
-             "bannerPathText"  : "Book content"
-         }
+
+        },
+        "profileCategory": {
+            "logoutTitle": "Are you sure ?",
+            "logoutDescription": "You will be logged out from your account !",
+            "logout": "Logout",
+            "ok": "OK",
+            "cancel": "Cancel",
+            "logoutSuccess": "You have been successfully logged out .",
+            "personalInfo": "Personal Information",
+            "myCourses": "My Courses",
+            "favoriteSubjects": "Favorite Subjects",
+            "myQuestions": "My Questions",
+            "comments": "My Comments",
+            "changePassword": "Change Password"
+        },
+        "setting": {
+            "trem": {
+                "title": "Terms and Conditions",
+                "tremTextAr": "Terms and Conditions in Arabic",
+                "tremTextEn": "Terms and Conditions in English",
+                "tremBtn": "Edit",
+                "tremArSuccess": "Arabic Terms Updated Successfully",
+                "tremEnSuccess": "English Terms Updated Successfully",
+                "tremArFailed": "Failed to Update Arabic Terms",
+                "tremEnFailed": "Failed to Update English Terms"
+            },
+            "privacy": {
+                "title": "Privacy Policy",
+                "privacyTextAr": "Privacy Policy in Arabic",
+                "privacyTextEn": "Privacy Policy in English",
+                "privacyBtn": "Edit",
+                "privacyArSuccess": "Arabic Privacy Updated Successfully",
+                "privacyEnSuccess": "English Privacy Updated Successfully",
+                "privacyArFailed": "Failed to Update Arabic Privacy",
+                "privacyEnFailed": "Failed to Update English Privacy"
+            }
+        }
     },
-    "authLinks" :{
-        "login" : "Log In",
-        "register" : "Register"
+    "authLinks": {
+        "login": "Log In",
+        "register": "Register"
     },
-    "welcome" : {
-        "welcome" : "welcome"
+    "welcome": {
+        "welcome": "welcome"
     },
     "socialLogin": {
         "google": "LogIn With Google",
         "facebook": "LogIn With Facebook",
-        "or": "OR" 
+        "or": "OR"
     }
 }

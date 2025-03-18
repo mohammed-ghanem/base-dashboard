@@ -26,7 +26,9 @@ body {
     position: relative;
     /* background: #EEF8FE; */
     background: radial-gradient(circle, #398ab738 30%, #fff 100%);
+   
 }
+
 .gradientBkColor {
     background: radial-gradient(circle, #398ab738 30%, #fff 100%);
 }
@@ -41,6 +43,9 @@ body {
 }
 .bkMainColor {
     background: #398AB7;
+}
+.lightBlueBk{
+    background: #e6f0f6;
 }
 .titleBox {
     width: fit-content;
@@ -118,17 +123,3 @@ body {
 .grdianBK{
     background: radial-gradient(circle, #add8e6 20%, #fff 60%);
 }
-
-
-/* 
-.ProseMirror {
-    min-height: 150px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-  }
-   */
-
-  /* .font-qahiri {
-    font-family: "Qahiri", sans-serif;
-  } */

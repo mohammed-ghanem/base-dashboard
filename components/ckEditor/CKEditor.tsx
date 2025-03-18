@@ -60,7 +60,7 @@ const CkEditor: FC<CkEditorProps> = ({
   config,
 }) => {
   useEffect(() => {
-    console.log("what is editorData: ", editorData);
+    // console.log("what is editorData: ", editorData);
   }, [editorData]);
 
   return (

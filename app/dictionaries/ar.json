@@ -1,198 +1,214 @@
 {
-    "navigation" : {
+    "navigation": {
         "home": "الرئيسية"
     },
-    "pages" : {
-        "homePage" : {
-            "statistics" : {
+    "pages": {
+        "homePage": {
+            "statistics": {
                 "FreeCourses": "الدورات المجانية",
-                "Books" : "الكتب والابحاث",
-                "VideoLibirary" : "المكتبة المرئية",
-                "AnswerQuestion"  : "سؤال وجواب",
-                "Subscribers"  : "المشتركين"
+                "Books": "الكتب والابحاث",
+                "VideoLibirary": "المكتبة المرئية",
+                "AnswerQuestion": "سؤال وجواب",
+                "Subscribers": "المشتركين"
             },
-            "titles" : {
-                "EducationalCourses" :  "الدورات المجانية",
-                "Books" : "الكتب والابحاث",
-                "VideoLibirary" : "المكتبة المرئية",
-                "AnswerQuestion"  : "سؤال وجواب",
-                "MoreWatching" : "الاكثر مشاهدة",
-                "SeeAll" : "عرض الكل" 
+            "titles": {
+                "EducationalCourses": "الدورات المجانية",
+                "Books": "الكتب والابحاث",
+                "VideoLibirary": "المكتبة المرئية",
+                "AnswerQuestion": "سؤال وجواب",
+                "MoreWatching": "الاكثر مشاهدة",
+                "SeeAll": "عرض الكل"
             },
-            "fatwaForm" :  {
-                "title" :  "هل تريد طلب فتوى !",
-                "help" : "نحن فى انتظارك , يسعدنا مساعدتك",
-                "name" : "الاسم",
-                "message" : "ادخل سؤالك",
-                "submit" : "ارسل"
+            "fatwaForm": {
+                "title": "هل تريد طلب فتوى !",
+                "help": "نحن فى انتظارك , يسعدنا مساعدتك",
+                "name": "الاسم",
+                "message": "ادخل سؤالك",
+                "submit": "ارسل"
             },
-            "footer" : {
-                "title" : "تواصل معنا على :",
-                "subscribers" : "اضف بريدك الالكترونى ليصلك كل جديد :",
-                "placeHolder" : "البريد الالكترونى",
-                "submit" : "ارسل",
-                "loading" : " جار الإرسال ...",
-                "alreadySubscribed" : "هذا البريد مشترك بالفعل برجاء ادخل بريد الكترونى اخر",
-                "aboutCenter" : " عن المركز",
-                "fastLinks" : "روابط سريعة",
-                "contactUs" : "تواصل معنا",
-                "forMen" : " للرجال :" ,
-                "forWomen" : " للنساء :"
+            "footer": {
+                "title": "تواصل معنا على :",
+                "subscribers": "اضف بريدك الالكترونى ليصلك كل جديد :",
+                "placeHolder": "البريد الالكترونى",
+                "submit": "ارسل",
+                "loading": " جار الإرسال ...",
+                "alreadySubscribed": "هذا البريد مشترك بالفعل برجاء ادخل بريد الكترونى اخر",
+                "aboutCenter": " عن المركز",
+                "fastLinks": "روابط سريعة",
+                "contactUs": "تواصل معنا",
+                "forMen": " للرجال :",
+                "forWomen": " للنساء :"
             }
         },
-        "signin" : {
-            "loginTitle" :"تسجيل الدخول ",
-            "email" : "البريد الالكترونى",
-            "passwordName" : "كلمة المرور",
-            "forgetPassword" : "هل نسيت كلمة المرور ؟",
-            "loginButton" : "تسجيل الدخول ",
-            "dontHaveUser" : "ليس لديك حساب ؟",
-            "createAccount"  : "انشاء حساب ",
-            "LoginSuccessful" : " تم تسجيل الدخول بنجاح",
-            "redirectHome" : "سيتم تحويلك الى الصفحة الرئيسية",
-            "ok":"تم",
-            "NotVerified" : "لم يتم تفعيل الحساب",
-            "newVerifyCode" : "تم إرسال رمز التحقق الجديد إلى بريدك الإلكتروني. يرجى التحقق من حسابك.",
-            "Error" : "خطأ",
-            "failedResendCode" : "فشل في إعادة إرسال رمز التحقق. يرجى المحاولة مرة أخرى في وقت لاحق.",
-            "verifyBeforeLogin" : "برجاء تفعيل الحساب قبل تسجيل الدخول",
-            "InvalidEmailOrPassword" : "خطأ فى البريد الالكترونى او كلمة المرور",
-            "InvalidEmailOrPasswordSwal" : "فشل تسجيل الدخول خطأ البريد الالكترونى او كلمة المرور يرجى المحاولة مرة اخرى",
-            "NetworkError" : "خطأ في الشبكة، يرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى، ",
-            "SomethingWentWrong" : "خطأ، حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقًا.',"
+        "signin": {
+            "loginTitle": "تسجيل الدخول ",
+            "email": "البريد الالكترونى",
+            "passwordName": "كلمة المرور",
+            "forgetPassword": "هل نسيت كلمة المرور ؟",
+            "loginButton": "تسجيل الدخول ",
+            "dontHaveUser": "ليس لديك حساب ؟",
+            "createAccount": "انشاء حساب ",
+            "LoginSuccessful": " تم تسجيل الدخول بنجاح",
+            "redirectHome": "سيتم تحويلك الى الصفحة الرئيسية",
+            "ok": "تم",
+            "NotVerified": "لم يتم تفعيل الحساب",
+            "newVerifyCode": "تم إرسال رمز التحقق الجديد إلى بريدك الإلكتروني. يرجى التحقق من حسابك.",
+            "Error": "خطأ",
+            "failedResendCode": "فشل في إعادة إرسال رمز التحقق. يرجى المحاولة مرة أخرى في وقت لاحق.",
+            "verifyBeforeLogin": "برجاء تفعيل الحساب قبل تسجيل الدخول",
+            "InvalidEmailOrPassword": "خطأ فى البريد الالكترونى او كلمة المرور",
+            "InvalidEmailOrPasswordSwal": "فشل تسجيل الدخول خطأ البريد الالكترونى او كلمة المرور يرجى المحاولة مرة اخرى",
+            "NetworkError": "خطأ في الشبكة، يرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى، ",
+            "SomethingWentWrong": "خطأ، حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقًا.',"
         },
-        "welcomeUser" : {
-            "profile" : "الملف الشخصى",
-            "editProfile" : "تعديل الملف الشخصى",
-            "changePassword" : "تغيير كلمة المرور",
-            "logOut" : "تسجيل الخروج",
-            "cancel" : "الغاء",
+        "welcomeUser": {
+            "profile": "الملف الشخصى",
+            "editProfile": "تعديل الملف الشخصى",
+            "changePassword": "تغيير كلمة المرور",
+            "logOut": "تسجيل الخروج",
+            "cancel": "الغاء",
             "name": "الاسم :",
-            "email" : " البريد الالكترونى :",
-            "mobile" : "رقم الجوال :",
-            "edit" : "تعديل",
-            "oldPassword" : "كلمة المرور السابقة",
-            "newPassword" :"كلمة المرور الجديدة ",
-            "confirmNewPassword" :"تاكد كلمة المرور الجديد ",
-            "confirmLogout" : "تأكيد تسجيل الخروج",
-            "logoutSuccess" :"تم تسجيل الخروج بنجاح"
-            
+            "email": " البريد الالكترونى :",
+            "mobile": "رقم الجوال :",
+            "edit": "تعديل",
+            "oldPassword": "كلمة المرور السابقة",
+            "newPassword": "كلمة المرور الجديدة ",
+            "confirmNewPassword": "تاكد كلمة المرور الجديد ",
+            "confirmLogout": "تأكيد تسجيل الخروج",
+            "logoutSuccess": "تم تسجيل الخروج بنجاح"
+
+        },
+        "forgotPassword": {
+            "title": "هل نسيت كلمة المرور ؟",
+            "titleDescription": " ! ادخل بريدك الالكترونى لاستعادة كلمة المرور",
+            "sendVerifyCode": "ارسال",
+            "VerificationLinkSent": "تم ارسال رابط التحقق !",
+            "checkEmail": "يرجى التحقق من بريدك الالكترونى للحصول على رابط التحقق !"
+        },
+        "restPassword": {
+            "title": "! اعادة تعيين كلمة المرور",
+            "titleDescription": " ! قم باعادة تعيين كلمة المرور الجديدة الخاصة بك",
+            "password": "كلمة المرور",
+            "confirmPassword": "تأكيد كلمة المرور",
+            "sendRestPassword": "ارسال",
+            "resetSuccessful": "تم اعادة تعيين كلمة المرور بنجاح",
+            "textReLogin": "يمكنك الان تسجيل الدخول باستخدام كلمة المرور الجديدة"
+        },
+        "changePassword": {
+            "title": "تغيير كلمة المرور",
+            "titleDescription": "تغيير كلمة المرور القديمة ",
+            "oldPassword": "كلمة المرور السابقة",
+            "newPassword": "كلمة المرور الجديدة ",
+            "confirmNewPassword": "تاكد كلمة المرور الجديد ",
+            "sendNewPassword": "ارسال",
+            "titleSwal": "تم تغيير كلمة المرور بنجاح",
+            "textSwal": "لقد تم تغيير كلمة المرور بنجاح . يمكنك الان اعادة تسجيل الدخول",
+            "ok": "تم",
+            "loadingTitle": "برجاء الانتظار ..."
+        },
+        "verifyCode": {
+            "title": "ادخل كود التفعيل ",
+            "titleDescription": " ادخل كود التفعيل المرسل اليك عبر بريدك الالكترونى",
+            "verifyCode": "ادخل كود التفعيل",
+            "verifyButton": "تفعيل",
+            "titleSwal": "تم تفعيل الحساب الخاص بك",
+            "textSwal": "تم تفعيل حسابك بنجاح",
+            "ok": "تم",
+            "loadingTitle": "برجاء الانتظار ...",
+            "resendNewOtp": "اعادة ارسال رمز التحقق",
+            "in": "فى",
+            "didntGetOtp": " ! لم تحصل على رمز التحقق ",
+            "resendOtptitleSwal": "جارى ارسال كود التحقق",
+            "notAuthenticated": "غير مصرح لك بالدخول",
+            "newOptSent": "لقد تم ارسال كود تحقق جديد للبريد الالكترونى الخاص بك بنجاح ",
+            "faildOtp": " حدث خطأ فى ارسال كود التحقق برجاء المحاولة لاحقا"
+        },
+        "EmailForOtp": {
+            "title": "لاعادة تفعيل حسابك",
+            "titleDescription": "ادخل بريدك الالكترونى لارسال كود التفعيل",
+            "email": "البريد الالكترونى",
+            "send": "ارسال",
+            "otpSenttitle": "ارسال كود التفعيل",
+            "otpSenttext": "يرجى التحقق من بريدك الالكترونى للحصول على رابط التحقق !",
+            "ok": "تم",
+            "InvalidEmail": "خطا فى البريد الالكترونى",
+            "faildOtp": "من فضلك ادخل البريد الالكترونى الصحيح",
+            "UnauthorizedTitle": "غير مصرح بالدخول",
+            "UnauthorizedText": "برجاء التاكد من بريدك الالكترونى والتواصل مع الدعم الفنى",
+            "error": "حدث خطا برجاء اعادة المحاولة فى وقت لاحق  والتاكد من عنوان بريدك الالكترونى"
+        },
+        "userProfile": {
+            "title": "حسابى",
+            "editProfile": "تعديل البيانات",
+            "save": "حفظ",
+            "firstName": "الاسم الاول",
+            "lastName": "الاسم الاخير",
+            "email": "البريد الالكترونى",
+            "phoneNumber": "رقم الهاتف",
+            "editSuccess": "تم التعديل بنجاح",
+            "editFailed": "فشل تعديل البيانات",
+            "ok": "تم",
+            "edit": "تعديل",
+            "editProfileTitle": "تعديل البيانات",
+            "myCourses": "دوراتى التعليمية",
+            "continue": "استمرار",
+            "myFavorites": "مواضيعى المفضلة",
+            "myQuestions": "اسئلتى",
+            "view": "مشاهدة",
+            "viewAnswer": "الاجابة",
+            "noCourses": "لست مشترك فى اى دورة تعليمية !! ",
+            "prev": "السابق",
+            "next": "التالى",
+            "noFavorites": "ليس لديك مواضيع مفضلة",
+            "noQuestions": "ليس لديك اسئلة"
+        },
+        "profileCategory": {
+            "logoutTitle": "هل انت متاكد ؟",
+            "logoutDescription": "سوف يتم تسجيل الخروج من حسابك",
+            "logout": "تسجيل الخروج",
+            "ok": "تم",
+            "cancel": "الغاء",
+            "logoutSuccess": "تم تسجيل الخروج بنجاح",
+            "personalInfo": "البيانات الشخصية",
+            "myCourses": "دوراتى التعليمية",
+            "favoriteSubjects": "المواضيع المفضلة",
+            "myQuestions": "اسئلتى",
+            "comments": "تعليقاتى",
+            "changePassword": "تغيير كلمة المرور"
+        },
+       "setting" : {
+         "trem" : {
+           "title" : "الشروط والاحكام",
+           "tremTextAr" : "تفاصيل الشروط والاحكام باللغة العربية",
+           "tremTextEn" : "تفاصيل الشروط والاحكام باللغة الانجليزية",
+           "tremBtn" : "تعديل",
+           "tremArSuccess" : "تم تعديل الشروط والاحكام باللغة العربية بنجاح",
+           "tremArFailed" : " فشل تعديل الشروط والاحكام باللغة العربية",
+           "tremEnSuccess" : "تم تعديل الشروط والاحكام باللغة الانجليزية بنجاح",
+           "tremEnFailed" : " فشل تعديل الشروط والاحكام باللغة الانجليزية"
          },
-        "forgotPassword" : {
-            "title" : "هل نسيت كلمة المرور ؟",
-            "titleDescription" : " ! ادخل بريدك الالكترونى لاستعادة كلمة المرور",
-            "sendVerifyCode" : "ارسال",
-            "VerificationLinkSent" : "تم ارسال رابط التحقق !",
-            "checkEmail" : "يرجى التحقق من بريدك الالكترونى للحصول على رابط التحقق !"
-        },
-        "restPassword" : {
-            "title" : "! اعادة تعيين كلمة المرور",
-            "titleDescription" : " ! قم باعادة تعيين كلمة المرور الجديدة الخاصة بك",
-            "password" : "كلمة المرور",
-            "confirmPassword" : "تأكيد كلمة المرور",
-            "sendRestPassword" : "ارسال",
-            "resetSuccessful" : "تم اعادة تعيين كلمة المرور بنجاح",
-            "textReLogin" : "يمكنك الان تسجيل الدخول باستخدام كلمة المرور الجديدة"
-        },
-        "changePassword" : {
-            "title" : "تغيير كلمة المرور",
-            "titleDescription" : "تغيير كلمة المرور القديمة ",
-            "oldPassword" : "كلمة المرور السابقة",
-            "newPassword" : "كلمة المرور الجديدة ",
-            "confirmNewPassword" : "تاكد كلمة المرور الجديد ",
-            "sendNewPassword" : "ارسال",
-            "titleSwal" : "تم تغيير كلمة المرور بنجاح",
-            "textSwal" : "لقد تم تغيير كلمة المرور بنجاح . يمكنك الان اعادة تسجيل الدخول",
-            "ok" : "تم",
-            "loadingTitle" : "برجاء الانتظار ..." 
-        },
-         "verifyCode" : {
-            "title" : "ادخل كود التفعيل ",
-            "titleDescription" : " ادخل كود التفعيل المرسل اليك عبر بريدك الالكترونى",
-            "verifyCode" : "ادخل كود التفعيل" ,
-            "verifyButton" : "تفعيل",
-            "titleSwal" : "تم تفعيل الحساب الخاص بك",
-            "textSwal" : "تم تفعيل حسابك بنجاح",
-            "ok" : "تم",
-            "loadingTitle" : "برجاء الانتظار ...",
-            "resendNewOtp" : "اعادة ارسال رمز التحقق",
-            "in" : "فى" ,
-            "didntGetOtp" : " ! لم تحصل على رمز التحقق ",
-            "resendOtptitleSwal" : "جارى ارسال كود التحقق",
-            "notAuthenticated" : "غير مصرح لك بالدخول",
-            "newOptSent" : "لقد تم ارسال كود تحقق جديد للبريد الالكترونى الخاص بك بنجاح ",
-            "faildOtp" : " حدث خطأ فى ارسال كود التحقق برجاء المحاولة لاحقا"
-         },
-         "EmailForOtp": {
-            "title" : "لاعادة تفعيل حسابك",
-            "titleDescription" : "ادخل بريدك الالكترونى لارسال كود التفعيل",
-            "email" :"البريد الالكترونى",
-            "send" : "ارسال",
-            "otpSenttitle" : "ارسال كود التفعيل",
-            "otpSenttext" :  "يرجى التحقق من بريدك الالكترونى للحصول على رابط التحقق !",
-            "ok" : "تم",
-            "InvalidEmail" : "خطا فى البريد الالكترونى",
-            "faildOtp" : "من فضلك ادخل البريد الالكترونى الصحيح",
-            "UnauthorizedTitle" : "غير مصرح بالدخول",
-            "UnauthorizedText" : "برجاء التاكد من بريدك الالكترونى والتواصل مع الدعم الفنى",
-            "error" : "حدث خطا برجاء اعادة المحاولة فى وقت لاحق  والتاكد من عنوان بريدك الالكترونى"
-        },
-        "userProfile" : {
-           "title" : "حسابى", 
-           "editProfile" : "تعديل البيانات",
-           "save" : "حفظ",
-           "firstName" : "الاسم الاول",
-           "lastName" : "الاسم الاخير",
-           "email" :"البريد الالكترونى",
-           "phoneNumber" : "رقم الهاتف",
-           "editSuccess" : "تم التعديل بنجاح",
-           "editFailed" : "فشل تعديل البيانات", 
-           "ok" : "تم",
-           "edit" : "تعديل",
-           "editProfileTitle" : "تعديل البيانات",
-           "myCourses" :"دوراتى التعليمية",
-           "continue" : "استمرار",
-           "myFavorites" : "مواضيعى المفضلة",
-           "myQuestions" : "اسئلتى",
-           "view" : "مشاهدة",
-           "viewAnswer" : "الاجابة",
-           "noCourses" : "لست مشترك فى اى دورة تعليمية !! ",
-           "prev" : "السابق",
-           "next" : "التالى",
-           "noFavorites" : "ليس لديك مواضيع مفضلة",
-           "noQuestions" : "ليس لديك اسئلة"
-        },
-        "profileCategory" : {
-              "logoutTitle" : "هل انت متاكد ؟",
-              "logoutDescription" : "سوف يتم تسجيل الخروج من حسابك",
-              "logout" : "تسجيل الخروج",
-              "ok" : "تم",
-              "cancel" : "الغاء",
-              "logoutSuccess" : "تم تسجيل الخروج بنجاح",
-              "personalInfo" : "البيانات الشخصية",
-              "myCourses" : "دوراتى التعليمية",
-              "favoriteSubjects" : "المواضيع المفضلة",
-              "myQuestions" : "اسئلتى",
-              "comments" : "تعليقاتى",
-              "changePassword" : "تغيير كلمة المرور"
-         },
-         "coursesContentPage" :{
-             "bannerPathText"  : "تفاصيل الدورة"
-         },
-         "booksContentPage" :{
-             "bannerPathText"  : "تفاصيل الكتاب"
+         "privacy" : {
+           "title" : "سياسة الخصوصية",
+           "privacyTextAr" : "تفاصيل سياسة الخصوصية باللغة العربية",
+           "privacyTextEn" : "تفاصيل سياسة الخصوصية باللغة الانجليزية",
+           "privacyBtn" : "تعديل",
+           "privacyArSuccess" : "تم تعديل سياسة الخصوصية باللغة العربية بنجاح",
+           "privacyArFailed" : " فشل تعديل سياسة الخصوصية باللغة العربية",
+           "privacyEnSuccess" : "تم تعديل سياسة الخصوصية باللغة الانجليزية بنجاح",
+           "privacyEnFailed" : " فشل تعديل سياسة الخصوصية باللغة الانجليزية"
          }
+       }
     },
-    "authLinks" :{
-        "login" : "تسجيل الدخول ",
-        "register" : "تسجيل حساب جديد "
+    "authLinks": {
+        "login": "تسجيل الدخول ",
+        "register": "تسجيل حساب جديد "
     },
-    "welcome" : {
-        "welcome" : " اهلا بك"
+    "welcome": {
+        "welcome": " اهلا بك"
     },
     "socialLogin": {
         "google": "تسجيل بأستخدام جوجل",
         "facebook": "تسجيل بأستخدام فيسبوك",
         "or": "او"
     }
-} 
+}
