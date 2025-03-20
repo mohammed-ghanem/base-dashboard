@@ -82,26 +82,32 @@ const SideBar = () => {
               className={`overflow-hidden transition-all duration-300 ${isSettingsOpen ? 'max-h-40' : 'max-h-0'}`}
             >
               <ul className="pr-4">
-                <li>
-                  <Link href={`/${lang}/about`} onClick={() => handleNavigation(`/${lang}/about`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+              <li>
+                  <Link href={`/${lang}/setting/about-app`} onClick={() => handleNavigation(`/${lang}/setting/about-app`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
                     <InfoCircleOutlined className="text-xl ml-2" />
                     <span className="hidden md:inline">عن التطبيق</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${lang}/setting/terms`} onClick={() => handleNavigation(`/${lang}/terms`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+                  <Link href={`/${lang}/setting/contact-info`} onClick={() => handleNavigation(`/${lang}/setting/contact-info`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+                    <InfoCircleOutlined className="text-xl ml-2" />
+                    <span className="hidden md:inline">بيانات الاتصال</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${lang}/setting/terms`} onClick={() => handleNavigation(`/${lang}/setting/terms`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
                     <FileTextOutlined className="text-xl ml-2" />
                     <span className="hidden md:inline">الشروط والاحكام</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${lang}/setting/privacy-policy`} onClick={() => handleNavigation(`/${lang}/terms`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+                  <Link href={`/${lang}/setting/privacy-policy`} onClick={() => handleNavigation(`/${lang}/setting/privacy-policy`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
                     <FileTextOutlined className="text-xl ml-2" />
                     <span className="hidden md:inline">سياسة الخصوصية</span>
                   </Link>
                 </li>
                  <li>
-                  <Link href={`/${lang}/general-settings`} onClick={() => handleNavigation(`/${lang}/terms`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
+                  <Link href={`/${lang}/general-settings`} onClick={() => handleNavigation(`/${lang}/general-settings`)} className="w-full text-left flex items-center space-x-3 p-2 rounded transition duration-200 hover:bg-[#398AB7] hover:text-white">
                     <FileTextOutlined className="text-xl ml-2" />
                     <span className="hidden md:inline">الاعدادات العامة</span>
                   </Link>

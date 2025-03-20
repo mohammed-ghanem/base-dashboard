@@ -10,7 +10,6 @@ import dynamic from 'next/dynamic';
 import TranslateHook from "../translate/TranslateHook";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-
 const CkEditor = dynamic(() => import('../ckEditor/CKEditor'), {
     ssr: false, // Disable SSR for this component
 });
@@ -38,7 +37,7 @@ interface ApiResponse {
     };
 }
 
-const Terms: React.FC = () => {
+const AboutApp = () => {
     const [arData, setArData] = useState<string>("");
     const [enData, setEnData] = useState<string>("");
     const [loadingAr, setLoadingAr] = useState<boolean>(true);
@@ -69,19 +68,19 @@ const Terms: React.FC = () => {
             };
 
             const response = await axios.get<ApiResponse>(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=terms-and-conditions-ar`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=about-app-ar`,
                 { headers }
             );
 
             setArData(response.data.data.data[0]?.value.ar || "");
         } catch (error) {
-            console.error("Failed to fetch Arabic terms:", error);
+            console.error("Failed to fetch Arabic aboutApp:", error);
             if (axios.isAxiosError(error) && error.response?.data?.errors?.general) {
                 setErrors(error.response.data.errors.general);
             } else {
-                setErrors(["Failed to fetch Arabic terms"]);
+                setErrors(["Failed to fetch Arabic aboutApp"]);
             }
-            toast.error("Failed to fetch Arabic terms");
+            toast.error("Failed to fetch Arabic aboutApp");
         } finally {
             setLoadingAr(false);
         }
@@ -105,19 +104,19 @@ const Terms: React.FC = () => {
             };
 
             const response = await axios.get<ApiResponse>(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=terms-and-conditions-en`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=about-app-en`,
                 { headers }
             );
 
             setEnData(response.data.data.data[0]?.value.en || "");
         } catch (error) {
-            console.error("Failed to fetch English terms:", error);
+            console.error("Failed to fetch English aboutApp:", error);
             if (axios.isAxiosError(error) && error.response?.data?.errors?.general) {
                 setErrors(error.response.data.errors.general);
             } else {
-                setErrors(["Failed to fetch English terms"]);
+                setErrors(["Failed to fetch English aboutApp"]);
             }
-            toast.error("Failed to fetch English terms");
+            toast.error("Failed to fetch English aboutApp");
         } finally {
             setLoadingEn(false);
         }
@@ -154,12 +153,12 @@ const Terms: React.FC = () => {
             };
 
             await axios.post<ApiResponse>(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=terms-and-conditions-ar`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=about-app-ar`,
                 { value: { ar: arData } },
                 { headers }
             );
 
-            toast.success(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.trem.tremArSuccess : ""}</span>);
+            toast.success(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.aboutApp.aboutArSuccess : ""}</span>);
         } catch (error) {
             console.error("Failed to update Arabic terms:", error);
             if (axios.isAxiosError(error) && error.response?.data?.errors?.general) {
@@ -167,7 +166,7 @@ const Terms: React.FC = () => {
             } else {
                 setErrors(["Failed to update Arabic terms"]);
             }
-            toast.error(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.trem.tremArError : ""}</span>);
+            toast.error(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.aboutApp.aboutArFailed : ""}</span>);
         } finally {
             setSubmittingAr(false);
         }
@@ -191,12 +190,12 @@ const Terms: React.FC = () => {
             };
 
             await axios.post<ApiResponse>(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=terms-and-conditions-en`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard-api/v1/settings?key=about-app-en`,
                 { value: { en: enData } },
                 { headers }
             );
 
-            toast.success(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.trem.tremEnSuccess : ""}</span>);
+            toast.success(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.aboutApp.aboutEnSuccess : ""}</span>);
         } catch (error) {
             console.error("Failed to update English terms:", error);
             if (axios.isAxiosError(error) && error.response?.data?.errors?.general) {
@@ -204,7 +203,7 @@ const Terms: React.FC = () => {
             } else {
                 setErrors(["Failed to update English terms"]);
             }
-            toast.error(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.trem.tremEnError : ""}</span>);
+            toast.error(<span className="font-semibold font-cairo text-xs">{translate ? translate.pages.setting.aboutApp.aboutEnFailed : ""}</span>);
         } finally {
             setSubmittingEn(false);
         }
@@ -224,11 +223,9 @@ const Terms: React.FC = () => {
     return (
         <div className="mt-8 container w-[95%] mx-auto p-4 bg-white shadow-md rounded">
             <ToastContainer
-
-
             /> {/* Add ToastContainer here */}
-            <h1 className="text-xl font-semibold mb-4 titleBox">
-                {translate ? translate.pages.setting.trem.title : ""}
+            <h1 className="text-sm font-semibold mb-4 titleBox">
+                {translate ? translate.pages.setting.aboutApp.title : ""}
             </h1>
 
             {errors.length > 0 && (
@@ -243,8 +240,9 @@ const Terms: React.FC = () => {
 
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label htmlFor="terms-ar" className="block font-bold my-4">
-                        {translate ? translate.pages.setting.trem.tremTextAr : ""}
+                    <label htmlFor="terms-ar"
+                        className="block text-xs font-bold titleBox mb-4">
+                        {translate ? translate.pages.setting.aboutApp.aboutTextAr : ""}
                     </label>
                     <div className="lightBlueBk p-5 rounded-md">
                         <CkEditor
@@ -262,8 +260,9 @@ const Terms: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="terms-en" className="block font-bold my-6">
-                        {translate ? translate.pages.setting.trem.tremTextEn : ""}
+                    <label htmlFor="terms-en"
+                        className="block text-xs font-bold titleBox mb-4">
+                        {translate ? translate.pages.setting.aboutApp.aboutTextEn : ""}
                     </label>
                     <div className="lightBlueBk p-5 rounded-md">
                         <CkEditor
@@ -294,13 +293,17 @@ const Terms: React.FC = () => {
                                 </>
                             )
                             :
-                            "Save "
+                            <>
+                                {translate ? translate.pages.setting.aboutApp.save : ""}
+                            </>
                         }
                     </button>
+
+
                 </div>
             </form>
         </div>
     );
 };
 
-export default Terms;
+export default AboutApp;

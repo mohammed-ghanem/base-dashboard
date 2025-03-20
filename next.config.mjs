@@ -4,6 +4,7 @@ const nextConfig = {
     unoptimized: true,
     domains: [],
   },
+  
   reactStrictMode: false,
   productionBrowserSourceMaps: false, // Disable source maps in production
   

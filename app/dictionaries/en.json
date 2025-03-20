@@ -199,6 +199,26 @@
                 "privacyEnSuccess": "English Privacy Updated Successfully",
                 "privacyArFailed": "Failed to Update Arabic Privacy",
                 "privacyEnFailed": "Failed to Update English Privacy"
+            },
+            "aboutApp": {
+                "title": "About App",
+                "aboutTextAr": "About App in Arabic",
+                "aboutTextEn": "About App in English",
+                "aboutAppBtn": "Edit",
+                "aboutAppArSuccess": "Arabic About App Updated Successfully",
+                "aboutAppEnSuccess": "English About App Updated Successfully",
+                "aboutAppArFailed": "Failed to Update Arabic About App",
+                "aboutAppEnFailed": "Failed to Update English About App",
+                "save": "Save"
+            },
+            "contactInfo": {
+                "title": "Contact Information",
+                "phoneNumbers": "Phone Numbers",
+                "whatsappNumbers": "WhatsApp Numbers",
+                "email": "Email",
+                "socialLinks": "Social Links",
+                "addOtherNumber": "Add Other Number",
+                "save": "Save"
             }
         }
     },

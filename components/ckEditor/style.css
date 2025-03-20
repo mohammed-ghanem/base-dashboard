@@ -92,7 +92,8 @@ p {
   display: block!important;
   min-height: 260px!important;
 }
-.ckeditor-container p {
-  line-height: 0.7 !important;  /* Reduces space between lines */
-  word-spacing: -2px !important; /* Reduces space between words */
-}
+/* .ckeditor-container p {
+  line-height: 0.7 !important;  
+  word-spacing: -2px !important; 
+} */
+

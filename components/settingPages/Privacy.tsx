@@ -8,6 +8,8 @@ import LangUseParams from "../translate/LangUseParams";
 import Cookies from "js-cookie";
 import dynamic from 'next/dynamic';
 import TranslateHook from "../translate/TranslateHook";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const CkEditor = dynamic(() => import('../ckEditor/CKEditor'), {
     ssr: false, // Disable SSR for this component
@@ -62,7 +64,7 @@ const Privacy: React.FC = () => {
 
             const headers = {
                 Authorization: `Bearer ${token}`,
-                "api-key": process.env.NEXT_PUBLIC_API_KEY!,
+                "api-key": process.env.NEXT_PUBLIC_API_KEY,
                 "Accept-Language": "ar", // Fetch Arabic data
             };
 
@@ -98,7 +100,7 @@ const Privacy: React.FC = () => {
 
             const headers = {
                 Authorization: `Bearer ${token}`,
-                "api-key": process.env.NEXT_PUBLIC_API_KEY!,
+                "api-key": process.env.NEXT_PUBLIC_API_KEY,
                 "Accept-Language": "en", // Fetch English data
             };
 
@@ -281,25 +283,23 @@ const Privacy: React.FC = () => {
                 </div>
 
                 <div className="flex space-x-2">
-                    {isEditing ? (
-                        <>
-                            <button
-                                type="submit"
-                                disabled={submittingAr || submittingEn}
-                                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
-                            >
-                                {submittingAr || submittingEn ? "Saving..." : "Save"}
-                            </button>
-                        </>
-                    ) : (
-                        <button
-                            type="button"
-                            onClick={() => setIsEditing(true)}
-                            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                        >
-                            {translate ? translate.pages.setting.trem.tremBtn : ""}
-                        </button>
-                    )}
+                    <button
+                        type="submit"
+                        disabled={submittingAr || submittingEn}
+                        className="block mx-auto my-4 font-semibold px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                    >
+                        {submittingAr || submittingEn
+                            ? (
+                                <>
+                                    <FontAwesomeIcon icon={faSpinner} spin className="mx-4" />
+                                </>
+                            )
+                            :
+                            <>
+                                {translate ? translate.pages.setting.aboutApp.save : ""}
+                            </>
+                        }
+                    </button>
                 </div>
             </form>
         </div>
